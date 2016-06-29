@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/my-android-project/shape-game.iml" filepath="$PROJECT_DIR$/my-android-project/shape-game.iml" />
+      <module fileurl="file://$PROJECT_DIR$/shape-game-parent.iml" filepath="$PROJECT_DIR$/shape-game-parent.iml" />
+    </modules>
+  </component>
+</project>
