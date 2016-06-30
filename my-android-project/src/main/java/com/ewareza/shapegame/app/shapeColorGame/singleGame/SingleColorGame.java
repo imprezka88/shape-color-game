@@ -1,8 +1,9 @@
 package com.ewareza.shapegame.app.shapeColorGame.singleGame;
 
+import android.graphics.Rect;
 import com.ewareza.shapegame.resources.DimenRes;
-import com.ewareza.shapegame.shape.objects.Shape;
-import com.ewareza.shapegame.shape.objects.Square;
+import com.ewareza.shapegame.domain.shape.Shape;
+import com.ewareza.shapegame.domain.shape.Square;
 
 public class SingleColorGame extends SingleGame {
     private final int currentLookedForColor;
@@ -40,7 +41,7 @@ public class SingleColorGame extends SingleGame {
 
     @Override
     public Shape getGameTitleShape() {
-        Square square = new Square(0, 0, DimenRes.getScreenWidth(), DimenRes.getGameTitleHeight(),
+        Square square = new Square(new Rect(0, 0, DimenRes.getScreenWidth(), DimenRes.getGameTitleHeight()),
                 currentLookedForColor);
         return square;
     }

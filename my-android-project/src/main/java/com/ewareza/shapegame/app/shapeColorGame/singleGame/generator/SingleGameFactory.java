@@ -6,7 +6,7 @@ import com.ewareza.shapegame.app.shapeColorGame.singleGame.SingleGame;
 import com.ewareza.shapegame.app.shapeColorGame.singleGame.SingleGameState;
 import com.ewareza.shapegame.app.shapeColorGame.singleGame.SingleShapeGame;
 import com.ewareza.shapegame.resources.SoundResources;
-import com.ewareza.shapegame.shape.objects.Shape;
+import com.ewareza.shapegame.domain.shape.Shape;
 
 import java.util.List;
 

@@ -2,10 +2,11 @@ package com.ewareza.shapegame.domain.generator;
 
 import android.graphics.Color;
 import android.graphics.Point;
+import android.graphics.Rect;
 import com.ewareza.shapegame.app.utils.GameUtils;
 import com.ewareza.shapegame.resources.DimenRes;
-import com.ewareza.shapegame.domain.objects.Rectangle;
-import com.ewareza.shapegame.domain.objects.Shape;
+import com.ewareza.shapegame.domain.shape.Rectangle;
+import com.ewareza.shapegame.domain.shape.Shape;
 
 public class RectangleGenerator extends ShapeGenerator {
     private static final RectangleGenerator INSTANCE = new RectangleGenerator(Rectangle.class);
@@ -33,7 +34,7 @@ public class RectangleGenerator extends ShapeGenerator {
         int right = left + randomRectSizeWidth;
         int bottom = top + randomRectSizeHeight;
 
-        return new Rectangle(left, top, right, bottom, ColorGenerator.generateColor());
+        return new Rectangle(new Rect(left, top, right, bottom), ColorGenerator.generateColor());
     }
 
     @Override
@@ -43,13 +44,14 @@ public class RectangleGenerator extends ShapeGenerator {
 
         int left = screenWidth / 2 - gameTitleHeight;
         int right = screenWidth / 2 + gameTitleHeight;
-        Rectangle rectangle = new Rectangle(left, 0, right, gameTitleHeight, GameUtils.getDefaultShapeColor());
+        Rectangle rectangle = new Rectangle(new Rect(left, 0, right, gameTitleHeight), GameUtils.getDefaultShapeColor());
 
         return rectangle;
     }
 
     @Override
     public Shape generateLearningShape() {
-        return new Rectangle(800, 170, 820, 175, Color.BLUE);
+        return new Rectangle(new Rect(GameUtils.LEARNING_SHAPE_LEFT, GameUtils.LEARNING_SHAPE_TOP,
+                GameUtils.LEARNING_SHAPE_LEFT + 20, GameUtils.LEARNING_SHAPE_TOP + 5), GameUtils.getLearningShapeColor());
     }
 }

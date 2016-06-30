@@ -1,12 +1,13 @@
 package com.ewareza.shapegame.domain.shape;
 
+import android.graphics.Rect;
 import com.ewareza.android.R;
 
 public class Square extends Rectangle {
     private static final String SQUARE = "square";
 
-    public Square(int left, int top, int right, int bottom, int color) {
-        super(left, top, right, bottom, color);
+    public Square(Rect rect, int color) {
+        super(rect, color);
     }
 
     @Override

@@ -1,9 +1,10 @@
 package com.ewareza.shapegame.domain.generator;
 
+import android.graphics.Rect;
 import com.ewareza.shapegame.app.utils.GameUtils;
-import com.ewareza.shapegame.domain.objects.Heart;
-import com.ewareza.shapegame.domain.objects.Rectangle;
-import com.ewareza.shapegame.domain.objects.Shape;
+import com.ewareza.shapegame.domain.shape.Heart;
+import com.ewareza.shapegame.domain.shape.Rectangle;
+import com.ewareza.shapegame.domain.shape.Shape;
 
 public class HeartGenerator extends ShapeGenerator {
     private static final HeartGenerator INSTANCE = new HeartGenerator(Heart.class);
@@ -28,5 +29,12 @@ public class HeartGenerator extends ShapeGenerator {
     public Shape generateGameTitleShape() {
         Rectangle rectangle = (Rectangle) RectangleGenerator.getInstance().generateGameTitleShape();
         return new Heart(rectangle.asRect(), GameUtils.getDefaultShapeColor());
+    }
+
+    @Override
+    public Shape generateLearningShape() {
+        int left = GameUtils.LEARNING_SHAPE_LEFT;
+        int top = GameUtils.LEARNING_SHAPE_TOP;
+        return new Heart(new Rect(left, top, left + 5, top + 10), GameUtils.getLearningShapeColor());
     }
 }

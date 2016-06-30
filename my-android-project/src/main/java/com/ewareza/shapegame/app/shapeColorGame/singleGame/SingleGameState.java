@@ -1,6 +1,6 @@
 package com.ewareza.shapegame.app.shapeColorGame.singleGame;
 
-import com.ewareza.shapegame.shape.objects.Shape;
+import com.ewareza.shapegame.domain.shape.Shape;
 
 import java.util.List;
 

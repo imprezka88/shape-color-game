@@ -3,8 +3,8 @@ package com.ewareza.shapegame.domain.generator;
 import android.graphics.Point;
 import com.ewareza.shapegame.app.utils.GameUtils;
 import com.ewareza.shapegame.resources.DimenRes;
-import com.ewareza.shapegame.domain.objects.Shape;
-import com.ewareza.shapegame.domain.objects.Triangle;
+import com.ewareza.shapegame.domain.shape.Shape;
+import com.ewareza.shapegame.domain.shape.Triangle;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -89,5 +89,18 @@ public class TriangleGenerator extends ShapeGenerator {
         Point c = new Point(screenWidth / 2, 0);
 
         return new Triangle(a, b, c, GameUtils.getDefaultShapeColor());
+    }
+
+    @Override
+    public Shape generateLearningShape() {
+        int x = GameUtils.LEARNING_SHAPE_LEFT;
+        int y = GameUtils.LEARNING_SHAPE_TOP;
+        Triangle trianglePattern = trianglePatterns.get(0);
+
+        Point a = new Point(x + trianglePattern.getA().x, y + trianglePattern.getA().y);
+        Point b = new Point(x + trianglePattern.getB().x, y + trianglePattern.getB().y);
+        Point c = new Point(x + trianglePattern.getC().x, y + trianglePattern.getC().y);
+
+        return new Triangle(a, b, c, GameUtils.getLearningShapeColor());
     }
 }

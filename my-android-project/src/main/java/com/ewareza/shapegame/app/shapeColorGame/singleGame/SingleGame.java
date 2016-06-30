@@ -4,7 +4,7 @@ import android.graphics.Canvas;
 import android.graphics.Point;
 import com.ewareza.shapegame.app.utils.GameUtils;
 import com.ewareza.shapegame.resources.SoundResources;
-import com.ewareza.shapegame.shape.objects.Shape;
+import com.ewareza.shapegame.domain.shape.Shape;
 
 import java.util.ArrayList;
 import java.util.List;

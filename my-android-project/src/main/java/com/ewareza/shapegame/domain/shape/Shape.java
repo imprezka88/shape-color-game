@@ -13,15 +13,16 @@ import com.ewareza.shapegame.domain.generator.ColorGenerator;
 import java.util.logging.Logger;
 
 public abstract class Shape {
-    private final static Logger LOGGER = Logger.getLogger(Shape.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(Shape.class.getName());
+
     private static final int GROW_STEP = 10;
+    private static final int MOVE_DOWN_STEP = 5;
+    private static final int MOVE_RIGHT_STEP = 1;
     protected final int color;
+
     protected final Rect associatedRect;
     protected final int stepForCurrentGame = Game.getStepForCurrentGame();
-    private final int MOVE_DOWN_STEP = 5;
-    private final int MOVE_RIGHT_STEP = 1;
     private boolean moveRight = true;
-
     public Shape(Rect associatedRect, int color) {
         this.associatedRect = associatedRect;
         this.color = color;
@@ -105,4 +106,8 @@ public abstract class Shape {
     public abstract int getGameTitleSoundId();
 
     public abstract String getName();
+
+    public Rect getAssociatedRect() {
+        return associatedRect;
+    }
 }

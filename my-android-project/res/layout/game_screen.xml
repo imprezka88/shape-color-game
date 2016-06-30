@@ -5,7 +5,7 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:id="@+id/kid_game"
-              tools:context="com.ewareza.shapegame.activity.ShapeGameActivity">
+              tools:context="com.ewareza.shapegame.app.shapeColorGame.ShapeGameActivity">
 
     <ImageView
             android:layout_width="wrap_content"
@@ -15,7 +15,7 @@
     <view
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            class="com.ewareza.shapegame.view.GameView"
+            class="com.ewareza.shapegame.app.shapeColorGame.GameView"
             android:id="@+id/view"
             android:layout_gravity="bottom"/>
 

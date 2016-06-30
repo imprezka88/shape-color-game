@@ -4,7 +4,7 @@ import android.content.Context;
 import android.media.MediaPlayer;
 import com.ewareza.android.R;
 import com.ewareza.shapegame.app.Game;
-import com.ewareza.shapegame.shape.objects.Shape;
+import com.ewareza.shapegame.domain.shape.Shape;
 
 public enum SoundResources implements Resources {
     INSTANCE;
@@ -50,8 +50,20 @@ public enum SoundResources implements Resources {
 
     public void playGameTitleSound(Shape currentLookedForShape) {
         if (Game.isSpeakingEnabled()) {
+            wonGameSound = resetSoundToIfIsPlaying(wonGameSound, R.raw.won_game);
             gameTitleSound = MediaPlayer.create(context, currentLookedForShape.getGameTitleSoundId());
             gameTitleSound.start();
+
+            gameTitleSound.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                @Override
+                public void onCompletion(MediaPlayer mp) {
+                    try {
+                        Thread.sleep(3000);
+                    } catch (InterruptedException e) {
+                    }
+                    Game.learnNextShape();
+                }
+            });
         }
     }
 

@@ -2,8 +2,9 @@ package com.ewareza.shapegame.app;
 
 import android.graphics.Canvas;
 import android.graphics.Point;
-import com.ewareza.shapegame.app.singleGame.SingleGame;
-import com.ewareza.shapegame.app.singleGame.generator.SingleGameFactory;
+import com.ewareza.shapegame.app.shapeColorGame.singleGame.SingleGame;
+import com.ewareza.shapegame.app.shapeColorGame.singleGame.generator.SingleGameFactory;
+import com.ewareza.shapegame.app.utils.GameUtils;
 import com.ewareza.shapegame.resources.SoundResources;
 
 public class GameEngine {

@@ -7,7 +7,7 @@ import com.ewareza.android.R;
 public class Oval extends Shape {
     private static final String OVAL = "oval";
 
-    public Oval(int color, Rect rect) {
+    public Oval(Rect rect, int color) {
         super(rect, color);
     }
 

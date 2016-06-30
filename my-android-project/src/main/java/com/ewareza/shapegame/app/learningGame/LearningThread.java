@@ -4,20 +4,20 @@ import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
 import android.view.SurfaceHolder;
 import com.ewareza.shapegame.app.DisplayThread;
-import com.ewareza.shapegame.app.GameUtils;
-import com.ewareza.shapegame.app.singleGame.generator.RandomShapesGenerator;
+import com.ewareza.shapegame.app.Game;
+import com.ewareza.shapegame.app.shapeColorGame.singleGame.generator.RandomShapesGenerator;
+import com.ewareza.shapegame.app.utils.GameUtils;
+import com.ewareza.shapegame.domain.generator.ShapeGenerator;
+import com.ewareza.shapegame.domain.shape.Shape;
 import com.ewareza.shapegame.resources.DimenRes;
 import com.ewareza.shapegame.resources.ImageResources;
-import com.ewareza.shapegame.shape.generator.ShapeGenerator;
-import com.ewareza.shapegame.shape.objects.*;
+import com.sun.java.accessibility.util.GUIInitializedListener;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.atomic.AtomicInteger;
 
 public class LearningThread extends DisplayThread {
     private List<Shape> learningShapes = new ArrayList<>();
-    private AtomicInteger currentShapeNumber = new AtomicInteger(0);
 
     public LearningThread(SurfaceHolder holder) {
         super(holder);
@@ -32,7 +32,7 @@ public class LearningThread extends DisplayThread {
 
     @Override
     protected void updatePhysics() {
-        learningShapes.get(currentShapeNumber.get()).growAndFallDown();
+        learningShapes.get(Game.getCurrentLearningShapeNumber().get()).growAndFallDown();
     }
 
     @Override
@@ -43,12 +43,24 @@ public class LearningThread extends DisplayThread {
     }
 
     private void drawShape(Canvas canvas) {
-        learningShapes.get(currentShapeNumber.get()).draw(canvas, GameUtils.getFilledPaint());
+        if(Game.getShowAllLearningShapes().get()) {
+            for (ShapeGenerator shapeGenerator : RandomShapesGenerator.getShapeGenerators()) {
+                shapeGenerator.generateLearningShape().draw(canvas, GameUtils.getFilledPaint());
+            }
+        }
+        else {
+            learningShapes.get(Game.getCurrentLearningShapeNumber().get()).draw(canvas, GameUtils.getFilledPaint());
+        }
     }
 
     private void drawFrog(Canvas canvas) {
         Drawable learningFrog = ImageResources.getLearningFrog();
-        learningFrog.setBounds(0, 0, DimenRes.getScreenWidth(), DimenRes.getScreenHeight());
+        if(Game.getShowAllLearningShapes().get()) {
+            learningFrog.setBounds(0, DimenRes.getScreenHeight()/2, DimenRes.getScreenWidth()/2, DimenRes.getScreenHeight());
+        }
+        else {
+            learningFrog.setBounds(0, 0, DimenRes.getScreenWidth(), DimenRes.getScreenHeight());
+        }
         learningFrog.draw(canvas);
     }
 

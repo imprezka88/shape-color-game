@@ -7,6 +7,8 @@ import com.ewareza.shapegame.resources.DimenRes;
 import java.util.Random;
 
 public class GameUtils {
+    public static final int LEARNING_SHAPE_TOP = 170;
+    public static final int LEARNING_SHAPE_LEFT = 800;
     private static Random random = new Random();
 
     public static Paint getGameBackgroundPaint() {
@@ -94,5 +96,9 @@ public class GameUtils {
 
     public static Paint getGameTitleLinePaint() {
         return gameTitleLinePaint;
+    }
+
+    public static int getLearningShapeColor() {
+        return Color.BLUE;
     }
 }

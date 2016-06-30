@@ -39,10 +39,38 @@
 
     <LinearLayout
             android:orientation="horizontal"
-            android:layout_width="450dp"
-            android:layout_height="150dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="top|center"
-            >
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="30dp">
+
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="200dp"
+                android:layout_height="match_parent"
+                >
+
+            <ImageButton
+                    android:layout_width="200dp"
+                    android:layout_height="120dp"
+                    android:id="@+id/newLearningGameButton"
+                    android:src="@drawable/learning_mode_picture"
+                    android:background="@drawable/new_game_border"
+                    android:layout_marginRight="5dp"/>
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:text="Nauka"
+                    android:id="@+id/textView"
+                    android:layout_gravity="top|center_horizontal"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textStyle="bold"
+                    android:typeface="monospace"
+                    android:textColor="#000000"/>
+        </LinearLayout>
 
         <LinearLayout
                 android:orientation="vertical"
@@ -53,14 +81,14 @@
                 android:layout_gravity="left">
 
             <ImageButton
-                    android:layout_width="match_parent"
-                    android:layout_height="115dp"
-                    android:id="@+id/shapesGameButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="120dp"
+                    android:id="@+id/newShapesGameButton"
                     android:src="@drawable/shape_game"
                     android:clickable="true"
+                    android:layout_marginRight="5dp"
                     android:background="@drawable/new_game_border"
-                    android:layout_gravity="left"
-                    android:layout_marginRight="10dp"/>
+                    android:layout_marginLeft="5dp"/>
 
             <TextView
                     android:layout_width="wrap_content"
@@ -82,15 +110,16 @@
                 android:layout_weight="0.65">
 
             <ImageButton
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="120dp"
-                    android:id="@+id/colorsGame"
+                    android:id="@+id/newColorGameButton"
                     android:layout_weight="2.06"
-                    android:src="@drawable/colours2"
-                    android:background="#ffffffff"
+                    android:src="@drawable/color_game_button"
+                    android:background="@drawable/new_game_border"
                     android:visibility="visible"
                     android:layout_gravity="right"
-                    android:layout_marginLeft="10dp"/>
+                    android:layout_marginLeft="5dp"
+                    android:scaleType="fitXY"/>
 
             <TextView
                     android:layout_width="wrap_content"
@@ -102,9 +131,9 @@
                     android:visibility="visible"
                     android:textColor="#000000"
                     android:typeface="monospace"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold"
+                    android:textIsSelectable="false"/>
         </LinearLayout>
-
     </LinearLayout>
 
 </LinearLayout>

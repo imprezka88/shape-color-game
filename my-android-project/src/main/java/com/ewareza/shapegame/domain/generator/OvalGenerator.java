@@ -2,9 +2,9 @@ package com.ewareza.shapegame.domain.generator;
 
 import android.graphics.Rect;
 import com.ewareza.shapegame.app.utils.GameUtils;
-import com.ewareza.shapegame.domain.objects.Oval;
-import com.ewareza.shapegame.domain.objects.Rectangle;
-import com.ewareza.shapegame.domain.objects.Shape;
+import com.ewareza.shapegame.domain.shape.Oval;
+import com.ewareza.shapegame.domain.shape.Rectangle;
+import com.ewareza.shapegame.domain.shape.Shape;
 
 public class OvalGenerator extends ShapeGenerator {
     private static final OvalGenerator INSTANCE = new OvalGenerator(Oval.class);
@@ -21,7 +21,7 @@ public class OvalGenerator extends ShapeGenerator {
     public Shape generateRandomShape() {
         Rectangle rectangle = (Rectangle) RectangleGenerator.getInstance().generateRandomShape();
         Rect rect = new Rect(rectangle.getLeft(), rectangle.getTop(), rectangle.getRight(), rectangle.getBottom());
-        Oval oval = new Oval(ColorGenerator.generateColor(), rect);
+        Oval oval = new Oval(rect, ColorGenerator.generateColor());
 
         return oval;
     }
@@ -31,6 +31,12 @@ public class OvalGenerator extends ShapeGenerator {
         Rectangle rectangle = (Rectangle) RectangleGenerator.getInstance().generateGameTitleShape();
         Rect rect = rectangle.asRect();
 
-        return new Oval(GameUtils.getDefaultShapeColor(), rect);
+        return new Oval(rect, GameUtils.getDefaultShapeColor());
+    }
+
+    @Override
+    public Shape generateLearningShape() {
+        Rect rect = RectangleGenerator.getInstance().generateLearningShape().getAssociatedRect();
+        return new Oval(rect, GameUtils.getLearningShapeColor());
     }
 }

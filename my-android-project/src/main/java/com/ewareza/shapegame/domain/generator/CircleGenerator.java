@@ -1,10 +1,11 @@
 package com.ewareza.shapegame.domain.generator;
 
+import android.graphics.Rect;
 import com.ewareza.shapegame.app.utils.GameUtils;
 import com.ewareza.shapegame.resources.DimenRes;
-import com.ewareza.shapegame.domain.objects.Circle;
-import com.ewareza.shapegame.domain.objects.Shape;
-import com.ewareza.shapegame.domain.objects.Square;
+import com.ewareza.shapegame.domain.shape.Circle;
+import com.ewareza.shapegame.domain.shape.Shape;
+import com.ewareza.shapegame.domain.shape.Square;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -24,17 +25,9 @@ public class CircleGenerator extends ShapeGenerator {
 
     @Override
     public Shape generateRandomShape() {
-/*        int screenWidth = DimenRes.getInstance().getScreenWidth();
-        int screenHeight = DimenRes.getInstance().getScreenHeight();
-        int gameTitleHeight = DimenRes.getInstance().getGameTitleHeight();
-
-        int centerX = GameUtils.getRandomInt(getMaxRadiusSize(), screenWidth - getMaxRadiusSize());
-        int centerY = GameUtils.getRandomInt(getMaxRadiusSize() + gameTitleHeight, screenHeight - getMaxRadiusSize());
-        int radius = radiusSizes.get(random.nextInt(radiusSizes.size()));*/
-
-        Square rect = (Square) SquareGenerator.getInstance().generateRandomShape();
-
-        Circle circle = new Circle((rect.getLeft() + rect.getRight()) / 2, (rect.getBottom() + rect.getTop()) / 2, (rect.getRight() - rect.getLeft()) / 2, ColorGenerator.generateColor());
+        Square square = (Square) SquareGenerator.getInstance().generateRandomShape();
+        Rect rect = square.getAssociatedRect();
+        Circle circle = new Circle((rect.left + rect.right) / 2, (rect.bottom + rect.top) / 2, (rect.right - rect.left) / 2, ColorGenerator.generateColor());
 
         return circle;
     }
@@ -47,7 +40,8 @@ public class CircleGenerator extends ShapeGenerator {
         return new Circle(screenWidth / 2, gameTitleHeight / 2, gameTitleHeight / 2, GameUtils.getDefaultShapeColor());
     }
 
-    private int getMaxRadiusSize() {
-        return Collections.max(radiusSizes);
+    @Override
+    public Shape generateLearningShape() {
+        return new Circle(GameUtils.LEARNING_SHAPE_LEFT, GameUtils.LEARNING_SHAPE_TOP, 5, GameUtils.getLearningShapeColor());
     }
 }

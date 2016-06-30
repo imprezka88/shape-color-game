@@ -1,7 +1,7 @@
 package com.ewareza.shapegame.app.shapeColorGame.singleGame;
 
-import com.ewareza.shapegame.shape.generator.ShapeGenerator;
-import com.ewareza.shapegame.shape.objects.Shape;
+import com.ewareza.shapegame.domain.generator.ShapeGenerator;
+import com.ewareza.shapegame.domain.shape.Shape;
 
 public class SingleShapeGame extends SingleGame {
     private final ShapeGenerator currentLookedForShapeGenerator;

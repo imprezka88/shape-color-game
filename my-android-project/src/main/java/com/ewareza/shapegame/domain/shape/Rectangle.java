@@ -11,12 +11,12 @@ public class Rectangle extends Shape {
     private int right;
     private int bottom;
 
-    public Rectangle(int left, int top, int right, int bottom, int color) {
-        super(new Rect(left, top, right, bottom), color);
-        this.left = left;
-        this.top = top;
-        this.right = right;
-        this.bottom = bottom;
+    public Rectangle(Rect rect, int color) {
+        super(new Rect(rect.left, rect.top, rect.right, rect.bottom), color);
+        this.left = rect.left;
+        this.top = rect.top;
+        this.right = rect.right;
+        this.bottom = rect.bottom;
     }
 
     public boolean contains(Point point) {

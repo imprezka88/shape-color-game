@@ -10,7 +10,7 @@ import android.widget.ImageButton;
 import com.ewareza.android.R;
 import com.ewareza.shapegame.app.Game;
 import com.ewareza.shapegame.app.learningGame.LearningGameActivity;
-import com.ewareza.shapegame.app.shapeGame.ShapeGameActivity;
+import com.ewareza.shapegame.app.shapeColorGame.ShapeGameActivity;
 
 public class MainScreenActivity extends Activity {
     TextToSpeech tts;

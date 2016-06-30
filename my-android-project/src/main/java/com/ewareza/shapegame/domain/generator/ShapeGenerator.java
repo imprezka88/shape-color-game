@@ -3,7 +3,7 @@ package com.ewareza.shapegame.domain.generator;
 import android.graphics.Point;
 import com.ewareza.shapegame.app.utils.GameUtils;
 import com.ewareza.shapegame.resources.DimenRes;
-import com.ewareza.shapegame.domain.objects.Shape;
+import com.ewareza.shapegame.domain.shape.Shape;
 
 import java.util.ArrayList;
 import java.util.Collections;

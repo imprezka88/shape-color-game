@@ -1,8 +1,8 @@
 package com.ewareza.shapegame.app.shapeColorGame.singleGame.generator;
 
 import com.ewareza.shapegame.app.utils.GameUtils;
-import com.ewareza.shapegame.shape.generator.*;
-import com.ewareza.shapegame.shape.objects.Shape;
+import com.ewareza.shapegame.domain.generator.*;
+import com.ewareza.shapegame.domain.shape.Shape;
 
 import java.util.ArrayList;
 import java.util.List;

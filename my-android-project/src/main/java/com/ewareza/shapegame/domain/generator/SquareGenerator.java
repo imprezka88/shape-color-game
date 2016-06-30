@@ -1,10 +1,11 @@
 package com.ewareza.shapegame.domain.generator;
 
 import android.graphics.Point;
+import android.graphics.Rect;
 import com.ewareza.shapegame.app.utils.GameUtils;
 import com.ewareza.shapegame.resources.DimenRes;
-import com.ewareza.shapegame.domain.objects.Shape;
-import com.ewareza.shapegame.domain.objects.Square;
+import com.ewareza.shapegame.domain.shape.Shape;
+import com.ewareza.shapegame.domain.shape.Square;
 
 public class SquareGenerator extends ShapeGenerator {
     private static final SquareGenerator INSTANCE = new SquareGenerator(Square.class);
@@ -26,7 +27,7 @@ public class SquareGenerator extends ShapeGenerator {
         int right = left + randomRectSize;
         int bottom = top + randomRectSize;
 
-        return new Square(left, top, right, bottom, ColorGenerator.generateColor());
+        return new Square(new Rect(left, top, right, bottom), ColorGenerator.generateColor());
     }
 
     @Override
@@ -36,8 +37,16 @@ public class SquareGenerator extends ShapeGenerator {
 
         int left = screenWidth / 2 - gameTitleHeight / 2;
         int right = screenWidth / 2 + gameTitleHeight / 2;
-        Square square = new Square(left, 0, right, gameTitleHeight, GameUtils.getDefaultShapeColor());
+        Square square = new Square(new Rect(left, 0, right, gameTitleHeight), GameUtils.getDefaultShapeColor());
 
         return square;
+    }
+
+    @Override
+    public Shape generateLearningShape() {
+        int top = GameUtils.LEARNING_SHAPE_TOP;
+        int left = GameUtils.LEARNING_SHAPE_LEFT;
+        int size = 5;
+        return new Square(new Rect(left, top, left + size, top + size), GameUtils.getLearningShapeColor());
     }
 }

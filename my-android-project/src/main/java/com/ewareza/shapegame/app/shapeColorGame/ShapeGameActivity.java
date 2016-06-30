@@ -13,7 +13,6 @@ import com.ewareza.android.R;
 import com.ewareza.shapegame.app.Game;
 import com.ewareza.shapegame.app.GameThread;
 import com.ewareza.shapegame.resources.ImageResources;
-import com.ewareza.shapegame.view.GameView;
 
 import java.util.concurrent.*;
 import java.util.logging.Logger;
