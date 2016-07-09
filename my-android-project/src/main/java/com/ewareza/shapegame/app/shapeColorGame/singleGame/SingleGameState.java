@@ -1,24 +1,24 @@
 package com.ewareza.shapegame.app.shapeColorGame.singleGame;
 
-import com.ewareza.shapegame.domain.shape.Shape;
+import com.ewareza.shapegame.domain.shape.AbstractShape;
 
 import java.util.List;
 
 public class SingleGameState {
-    private final List<Shape> shapes;
-    private final Shape lookedForObject;
+    private final List<AbstractShape> shapes;
+    private final AbstractShape lookedForObject;
     private int numberOfLookedForObjects;
 
-    public SingleGameState(List<Shape> shapes) {
+    public SingleGameState(List<AbstractShape> shapes) {
         this.shapes = shapes;
         lookedForObject = getFirstGeneratedShape(shapes);
     }
 
-    private Shape getFirstGeneratedShape(List<Shape> shapes) {
+    private AbstractShape getFirstGeneratedShape(List<AbstractShape> shapes) {
         return shapes.get(0);
     }
 
-    public List<Shape> getShapes() {
+    public List<AbstractShape> getShapes() {
         return shapes;
     }
 
@@ -30,7 +30,7 @@ public class SingleGameState {
         this.numberOfLookedForObjects = numberOfLookedForObjects;
     }
 
-    public Shape getLookedForObject() {
+    public AbstractShape getLookedForObject() {
         return lookedForObject;
     }
 }

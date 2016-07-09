@@ -20,7 +20,7 @@
                 android:screenOrientation="landscape">
         </activity>
         <activity
-                android:name="com.ewareza.shapegame.app.learningGame.LearningGameActivity"
+                android:name="com.ewareza.shapegame.app.learning.LearningGameActivity"
                 android:label="learningGame"
                 android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
                 android:screenOrientation="landscape">

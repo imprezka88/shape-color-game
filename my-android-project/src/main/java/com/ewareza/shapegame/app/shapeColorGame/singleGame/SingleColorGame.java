@@ -1,7 +1,9 @@
 package com.ewareza.shapegame.app.shapeColorGame.singleGame;
 
-import android.graphics.Rect;
-import com.ewareza.shapegame.resources.DimenRes;
+import com.ewareza.shapegame.app.Game;
+import com.ewareza.shapegame.domain.Splash;
+import com.ewareza.shapegame.domain.generator.SquareFactory;
+import com.ewareza.shapegame.domain.shape.AbstractShape;
 import com.ewareza.shapegame.domain.shape.Shape;
 import com.ewareza.shapegame.domain.shape.Square;
 
@@ -21,7 +23,7 @@ public class SingleColorGame extends SingleGame {
 
     private int countNumberOfLookedForObjects() {
         int numberOfLookedForObjects = 0;
-        for (Shape shape : getSingleGameState().getShapes()) {
+        for (AbstractShape shape : getSingleGameState().getShapes()) {
             if (isLookedForColor(shape))
                 numberOfLookedForObjects++;
 
@@ -30,19 +32,19 @@ public class SingleColorGame extends SingleGame {
         return numberOfLookedForObjects;
     }
 
-    private boolean isLookedForColor(Shape shape) {
+    private boolean isLookedForColor(AbstractShape shape) {
         return shape.getColor() == currentLookedForColor;
     }
 
     @Override
-    public boolean isLookedForObjectClicked(Shape shape) {
+    public boolean isLookedForObjectClicked(AbstractShape shape) {
         return isLookedForColor(shape);
     }
 
     @Override
     public Shape getGameTitleShape() {
-        Square square = new Square(new Rect(0, 0, DimenRes.getScreenWidth(), DimenRes.getGameTitleHeight()),
-                currentLookedForColor);
-        return square;
+        Square square = (Square) SquareFactory.getInstance().getGameTitleShape();
+
+        return new Splash(square.getAssociatedRect(), currentLookedForColor, Game.getDrawer());
     }
 }

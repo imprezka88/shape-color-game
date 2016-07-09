@@ -9,11 +9,36 @@ import android.view.View;
 import android.widget.ImageButton;
 import com.ewareza.android.R;
 import com.ewareza.shapegame.app.Game;
-import com.ewareza.shapegame.app.learningGame.LearningGameActivity;
+import com.ewareza.shapegame.app.learning.LearningGameActivity;
 import com.ewareza.shapegame.app.shapeColorGame.ShapeGameActivity;
+import com.ewareza.shapegame.app.utils.GameUtils;
+import com.ewareza.shapegame.resources.SoundResources;
 
 public class MainScreenActivity extends Activity {
     TextToSpeech tts;
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        SoundResources.pauseMainMenuSoundIfPlaying();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        SoundResources.stopPlayingMainMenuSoundIfPlaying();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        SoundResources.playMainMenuSound();
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -35,6 +60,10 @@ public class MainScreenActivity extends Activity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainScreenActivity.this, ShapeGameActivity.class);
+                Bundle b = new Bundle();
+                b.putString(GameUtils.GAME_TYPE, GameUtils.SHAPE);
+                intent.putExtras(b);
+                startActivity(intent);
                 startActivity(intent);
             }
         });
@@ -44,11 +73,19 @@ public class MainScreenActivity extends Activity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainScreenActivity.this, ShapeGameActivity.class);
+                Bundle b = new Bundle();
+                b.putString(GameUtils.GAME_TYPE, GameUtils.COLOR);
+                intent.putExtras(b);
                 startActivity(intent);
             }
         });
 
         addOnClickListenersToButtons();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
     }
 
     private void addOnClickListenersToButtons() {
@@ -62,7 +99,7 @@ public class MainScreenActivity extends Activity {
         speakingOnOffButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (Game.isSpeakingEnabled()) {
+                if (Game.getSpeakingEnabled()) {
                     Game.setSpeakingEnabled(false);
                     speakingOnOffButton.setImageResource(R.drawable.speaking_off);
                 } else {
@@ -82,9 +119,11 @@ public class MainScreenActivity extends Activity {
             public void onClick(View v) {
                 if (Game.getSoundsEnabled()) {
                     Game.setSoundsEnabled(false);
+                    SoundResources.pauseMainMenuSoundIfPlaying();
                     soundsOnOffButton.setImageResource(R.drawable.sounds_off);
                 } else {
                     Game.setSoundsEnabled(true);
+                    SoundResources.resumeMainMenuSound();
                     soundsOnOffButton.setImageResource(R.drawable.sounds_on);
                 }
             }

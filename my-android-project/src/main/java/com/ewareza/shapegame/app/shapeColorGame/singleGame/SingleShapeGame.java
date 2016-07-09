@@ -1,21 +1,23 @@
 package com.ewareza.shapegame.app.shapeColorGame.singleGame;
 
-import com.ewareza.shapegame.domain.generator.ShapeGenerator;
+import com.ewareza.shapegame.domain.generator.ShapeFactory;
+import com.ewareza.shapegame.domain.shape.AbstractShape;
 import com.ewareza.shapegame.domain.shape.Shape;
 
 public class SingleShapeGame extends SingleGame {
-    private final ShapeGenerator currentLookedForShapeGenerator;
+    public static final int TITLE_SHAPE_PADDING = 5;
+    private final ShapeFactory currentLookedForShapeFactory;
 
-    public SingleShapeGame(SingleGameState singleGameState, ShapeGenerator lookedForShape) {
+    public SingleShapeGame(SingleGameState singleGameState, ShapeFactory lookedForShape) {
         super(singleGameState);
-        currentLookedForShapeGenerator = lookedForShape;
+        currentLookedForShapeFactory = lookedForShape;
         singleGameState.setNumberOfLookedForObjects(countNumberOfLookedForObjects());
         setNumberOfLookedForShapesOnScreen(singleGameState.getNumberOfLookedForObjects());
     }
 
     private int countNumberOfLookedForObjects() {
         int numberOfLookedForObjects = 0;
-        for (Shape shape : getSingleGameState().getShapes()) {
+        for (AbstractShape shape : getSingleGameState().getShapes()) {
             if (isLookedForShape(shape))
                 numberOfLookedForObjects++;
         }
@@ -23,17 +25,17 @@ public class SingleShapeGame extends SingleGame {
         return numberOfLookedForObjects;
     }
 
-    private boolean isLookedForShape(Shape shape) {
+    private boolean isLookedForShape(AbstractShape shape) {
         return shape.getClass().equals(getSingleGameState().getLookedForObject().getClass());
     }
 
     @Override
-    public boolean isLookedForObjectClicked(Shape shape) {
+    public boolean isLookedForObjectClicked(AbstractShape shape) {
         return isLookedForShape(shape);
     }
 
     @Override
     public Shape getGameTitleShape() {
-        return currentLookedForShapeGenerator.generateGameTitleShape();
+        return currentLookedForShapeFactory.getGameTitleShape();
     }
 }

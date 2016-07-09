@@ -4,27 +4,31 @@ import android.content.Context;
 import android.graphics.drawable.AnimationDrawable;
 import android.graphics.drawable.Drawable;
 import com.ewareza.android.R;
-import com.ewareza.shapegame.domain.generator.ColorGenerator;
+import com.ewareza.shapegame.domain.generator.ColorFactory;
 
 public enum ImageResources implements Resources {
     INSTANCE;
 
+    private static Drawable gameOverBackground;
+    private static AnimationDrawable learningFrog;
+    private static AnimationDrawable talkingFrogAnimation;
     private Drawable gameBackground;
     private Context context;
-    private static Drawable gameOverBackground;
-    private static Drawable learningFrog;
-    private static AnimationDrawable gameOverAnimation;
 
     public static ImageResources getInstance() {
         return INSTANCE;
     }
 
-    public static AnimationDrawable getGameOverAnimation() {
-        return gameOverAnimation;
+    public static AnimationDrawable getTalkingFrogAnimation() {
+        return talkingFrogAnimation;
     }
 
-    public static void setGameOverAnimation(AnimationDrawable gameOverAnimation) {
-        ImageResources.gameOverAnimation = gameOverAnimation;
+    public static void setTalkingFrogAnimation(AnimationDrawable talkingFrogAnimation) {
+        ImageResources.talkingFrogAnimation = talkingFrogAnimation;
+    }
+
+    public static AnimationDrawable getLearningFrog() {
+        return learningFrog;
     }
 
     @Override
@@ -32,7 +36,7 @@ public enum ImageResources implements Resources {
         this.context = context;
         gameBackground = context.getResources().getDrawable(R.drawable.game_background_clouds);
         gameOverBackground = context.getResources().getDrawable(R.drawable.game_over_animation);
-        learningFrog = context.getResources().getDrawable(R.drawable.frog_wave_up_mouth_closed);
+        learningFrog = (AnimationDrawable) context.getResources().getDrawable(R.drawable.game_over_animation);
     }
 
     public Drawable getGameBackground() {
@@ -40,24 +44,12 @@ public enum ImageResources implements Resources {
     }
 
     public Drawable getResource(String shapeClassName, int color) {
-        String fileName = String.format("%s_%s", shapeClassName, ColorGenerator.ColorWithIndex.asString(color));
+        String fileName = String.format("%s_%s", shapeClassName, ColorFactory.ColorWithIndex.asString(color));
         int identifier = context.getResources().getIdentifier(fileName, "drawable", "com.ewareza.android");
 
         if (identifier != 0)
             return context.getResources().getDrawable(identifier);
 
         throw new IllegalArgumentException(String.format("Identifier for drawable: %s not found", fileName));
-    }
-
-    public static Drawable getGameOverBackground() {
-        return gameOverBackground;
-    }
-
-    public static Drawable getLearningFrog() {
-        return learningFrog;
-    }
-
-    public static void setLearningFrog(Drawable learningFrog) {
-        ImageResources.learningFrog = learningFrog;
     }
 }

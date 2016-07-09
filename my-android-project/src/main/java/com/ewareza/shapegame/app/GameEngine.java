@@ -2,19 +2,30 @@ package com.ewareza.shapegame.app;
 
 import android.graphics.Canvas;
 import android.graphics.Point;
+import com.ewareza.shapegame.app.shapeColorGame.ShapeColorGame;
 import com.ewareza.shapegame.app.shapeColorGame.singleGame.SingleGame;
 import com.ewareza.shapegame.app.shapeColorGame.singleGame.generator.SingleGameFactory;
 import com.ewareza.shapegame.app.utils.GameUtils;
 import com.ewareza.shapegame.resources.SoundResources;
 
+import java.util.logging.Logger;
+
 public class GameEngine {
     private final Object lock = new Object();
     private final SoundResources soundResources = SoundResources.INSTANCE;
+    Logger logger = Logger.getLogger(GameEngine.class.getName());
     private SingleGame currentSingleGame;
+    private String gameType;
+
+    public GameEngine(String gameType) {
+        this.gameType = gameType;
+    }
 
     public void generateNewGame() {
-        Game.incrementGameNumber();
-        currentSingleGame = SingleGameFactory.createNewSingleGame();
+        synchronized (lock) {
+            ShapeColorGame.incrementGameNumber();
+            currentSingleGame = SingleGameFactory.createNewSingleGame(gameType);
+        }
     }
 
     public void update() {

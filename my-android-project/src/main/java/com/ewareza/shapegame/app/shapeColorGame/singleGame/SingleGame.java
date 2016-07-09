@@ -3,8 +3,9 @@ package com.ewareza.shapegame.app.shapeColorGame.singleGame;
 import android.graphics.Canvas;
 import android.graphics.Point;
 import com.ewareza.shapegame.app.utils.GameUtils;
-import com.ewareza.shapegame.resources.SoundResources;
+import com.ewareza.shapegame.domain.shape.AbstractShape;
 import com.ewareza.shapegame.domain.shape.Shape;
+import com.ewareza.shapegame.resources.SoundResources;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,21 +26,21 @@ public abstract class SingleGame {
         return singleGameState;
     }
 
-    public Shape getCurrentLookedForObject() {
+    public AbstractShape getCurrentLookedForObject() {
         return singleGameState.getLookedForObject();
     }
 
-    public abstract boolean isLookedForObjectClicked(Shape shape);
+    public abstract boolean isLookedForObjectClicked(AbstractShape shape);
 
-    public List<Shape> getShapes() {
+    public List<AbstractShape> getShapes() {
         return singleGameState.getShapes();
     }
 
     public abstract Shape getGameTitleShape();
 
     public void onScreenTouched(Point point) {
-        List<Shape> toRemove = new ArrayList<>();
-        for (Shape shape : getShapes()) {
+        List<AbstractShape> toRemove = new ArrayList<>();
+        for (AbstractShape shape : getShapes()) {
             if (shape.contains(point) && isLookedForObjectClicked(shape)) {
                 SoundResources.getInstance().playCorrectShapeClickedSound();
                 toRemove.add(shape);
@@ -52,8 +53,8 @@ public abstract class SingleGame {
             removeTouchedShapes(toRemove);
     }
 
-    private void removeTouchedShapes(List<Shape> toRemove) {
-        for (Shape shape : toRemove) {
+    private void removeTouchedShapes(List<AbstractShape> toRemove) {
+        for (AbstractShape shape : toRemove) {
             getShapes().remove(shape);
             numberOfLookedForShapesOnScreen--;
         }
@@ -68,13 +69,13 @@ public abstract class SingleGame {
     }
 
     public void update() {
-        for (Shape shape : getShapes()) {
-            shape.move();
+        for (AbstractShape shape : getShapes()) {
+            shape.move(getShapes());
         }
     }
 
     public void draw(Canvas canvas) {
-        for (Shape shape : getShapes()) {
+        for (AbstractShape shape : getShapes()) {
             shape.draw(canvas, GameUtils.getFilledPaint());
         }
     }

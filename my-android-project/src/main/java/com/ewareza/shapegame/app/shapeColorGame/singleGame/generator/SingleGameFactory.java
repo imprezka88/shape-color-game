@@ -1,25 +1,25 @@
 package com.ewareza.shapegame.app.shapeColorGame.singleGame.generator;
 
-import com.ewareza.shapegame.app.Game;
 import com.ewareza.shapegame.app.shapeColorGame.singleGame.SingleColorGame;
 import com.ewareza.shapegame.app.shapeColorGame.singleGame.SingleGame;
 import com.ewareza.shapegame.app.shapeColorGame.singleGame.SingleGameState;
 import com.ewareza.shapegame.app.shapeColorGame.singleGame.SingleShapeGame;
+import com.ewareza.shapegame.app.utils.GameUtils;
+import com.ewareza.shapegame.domain.shape.AbstractShape;
 import com.ewareza.shapegame.resources.SoundResources;
-import com.ewareza.shapegame.domain.shape.Shape;
 
 import java.util.List;
 
 public class SingleGameFactory {
     private static final Object lock = new Object();
-    private static final RandomShapesGenerator shapesGenerator = RandomShapesGenerator.getInstance();
+    private static final RandomShapesFactory shapesGenerator = RandomShapesFactory.getInstance();
 
-    public static SingleGame createNewSingleGame() {
-        List<Shape> shapes = generateShapes();
+    public static SingleGame createNewSingleGame(String gameType) {
+        List<AbstractShape> shapes = generateShapes();
         SingleGameState singleGameState = new SingleGameState(shapes);
 
         //@TODO take game type from some list, in file or class
-        if (shouldGenerateColorGame()) {
+        if (shouldGenerateColorGame(gameType)) {
             return generateSingleColorGame(singleGameState, shapes);
         } else {
             return generateSingleShapeGame(singleGameState);
@@ -27,25 +27,26 @@ public class SingleGameFactory {
     }
 
     private static SingleShapeGame generateSingleShapeGame(SingleGameState singleGameState) {
-        SingleShapeGame singleShapeGame = new SingleShapeGame(singleGameState, shapesGenerator.getCurrentLookedForShapeGenerator());
-        SoundResources.INSTANCE.playGameTitleSound(singleShapeGame.getCurrentLookedForObject());
+        SingleShapeGame singleShapeGame = new SingleShapeGame(singleGameState, shapesGenerator.getCurrentLookedForShapeFactory());
+        SoundResources.INSTANCE.playShapeGameTitleSound(singleShapeGame.getCurrentLookedForObject());
 
         return singleShapeGame;
     }
 
-    private static SingleColorGame generateSingleColorGame(SingleGameState singleGameState, List<Shape> shapes) {
+    private static SingleColorGame generateSingleColorGame(SingleGameState singleGameState, List<AbstractShape> shapes) {
         SingleColorGame singleColorGame = new SingleColorGame(singleGameState, shapes.get(0).getColor());
+        SoundResources.INSTANCE.playColorGameTitleSound(singleColorGame.getCurrentLookedForObject().getColor());
 
         return singleColorGame;
     }
 
-    private static boolean shouldGenerateColorGame() {
-        return Game.getGameNumber() > Game.getNumberOfDifferentGameSpeeds();
+    private static boolean shouldGenerateColorGame(String gameType) {
+        return gameType.equals(GameUtils.COLOR);
     }
 
-    private static List<Shape> generateShapes() {
+    private static List<AbstractShape> generateShapes() {
         synchronized (lock) {
-            return shapesGenerator.generateShapes();
+            return shapesGenerator.generateRandomShapes();
         }
     }
 }

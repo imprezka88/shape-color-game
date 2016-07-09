@@ -11,7 +11,7 @@ public class ShapeGameApplication extends Application {
     public void onCreate() {
         super.onCreate();
         initResources();
-        Game.init();
+//        Game.setToInitialState();
     }
 
     private void initResources() {

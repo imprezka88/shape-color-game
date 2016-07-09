@@ -3,9 +3,11 @@ package com.ewareza.shapegame.app;
 import android.graphics.Canvas;
 import android.view.SurfaceHolder;
 
+import java.util.concurrent.atomic.AtomicBoolean;
+
 public abstract class DisplayThread extends Thread {
-    protected SurfaceHolder surfaceHolder;
-    private boolean running;
+    protected final SurfaceHolder surfaceHolder;
+    private AtomicBoolean running = new AtomicBoolean(false);
 
     public DisplayThread(SurfaceHolder surfaceHolder) {
         this.surfaceHolder = surfaceHolder;
@@ -13,7 +15,7 @@ public abstract class DisplayThread extends Thread {
 
     @Override
     public void run() {
-        while (running) {
+        while (running.get()) {
             updatePhysics();
 
             Canvas canvas = null;
@@ -41,10 +43,10 @@ public abstract class DisplayThread extends Thread {
     protected abstract void tryToSleep();
 
     public boolean isRunning() {
-        return running;
+        return running.get();
     }
 
     public void setRunning(boolean running) {
-        this.running = running;
+        this.running.set(running);
     }
 }

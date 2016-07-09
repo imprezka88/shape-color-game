@@ -5,7 +5,6 @@ import android.graphics.drawable.AnimationDrawable;
 import android.graphics.drawable.Drawable;
 import android.view.SurfaceHolder;
 import com.ewareza.shapegame.app.DisplayThread;
-import com.ewareza.shapegame.app.Game;
 import com.ewareza.shapegame.app.utils.GameUtils;
 import com.ewareza.shapegame.resources.DimenRes;
 import com.ewareza.shapegame.resources.ImageResources;
@@ -16,7 +15,7 @@ import java.util.logging.Logger;
 
 public class ShapeGameDisplayThread extends DisplayThread {
     private final static Logger Log = Logger.getLogger(ShapeGameDisplayThread.class.getName());
-    private final int INITIAL_FROG_POSITION = 300;
+    private final int INITIAL_FROG_POSITION = 150;
     private AtomicInteger right = new AtomicInteger(INITIAL_FROG_POSITION);
     private AtomicInteger bottom = new AtomicInteger(INITIAL_FROG_POSITION);
 
@@ -29,7 +28,7 @@ public class ShapeGameDisplayThread extends DisplayThread {
 
     @Override
     protected void updatePhysics() {
-        Game.updatePhysics();
+        ShapeColorGame.updatePhysics();
     }
 
     @Override
@@ -39,25 +38,25 @@ public class ShapeGameDisplayThread extends DisplayThread {
         drawShapes(canvas);
         drawFrog(canvas);
 
-        if (Game.isGameOver()) {
-            AnimationDrawable drawable = ImageResources.getInstance().getGameOverAnimation();
+        if (ShapeColorGame.isGameOver()) {
+            AnimationDrawable drawable = ImageResources.getTalkingFrogAnimation();
             drawable.start();
             drawGameOver(canvas);
         }
     }
 
     private void drawFrog(Canvas canvas) {
-        if(!Game.isGameOver()) {
+        if (!ShapeColorGame.isGameOver()) {
             right.set(INITIAL_FROG_POSITION);
             bottom.set(INITIAL_FROG_POSITION);
         }
-        AnimationDrawable drawable = ImageResources.getInstance().getGameOverAnimation();
+        AnimationDrawable drawable = ImageResources.getTalkingFrogAnimation();
         drawable.setBounds(0, 0, right.get(), bottom.get());
         drawable.draw(canvas);
     }
 
     private void drawGameOver(Canvas canvas) {
-        if(bottom.get() + 10 < DimenRes.getScreenHeight()) {
+        if (bottom.get() + 10 < DimenRes.getScreenHeight() / 2) {
             right.addAndGet(10);
             bottom.addAndGet(10);
         }
@@ -65,7 +64,7 @@ public class ShapeGameDisplayThread extends DisplayThread {
         /*Drawable drawable = ImageResources.getInstance().getLearningFrog();
         drawable.setBounds(0, 0, screenWidth, screenHeight);
         drawable.draw(canvas);
-        /*ImageResources.getGameOverAnimation().start();
+        /*ImageResources.getTalkingFrogAnimation().start();
         //@TODO refactor
         int screenHeight = DimenRes.getScreenHeight();
         int screenWidth = DimenRes.getScreenWidth();
@@ -82,14 +81,14 @@ public class ShapeGameDisplayThread extends DisplayThread {
     }
 
     private void drawShapes(Canvas canvas) {
-        Game.getEngine().draw(canvas);
+        ShapeColorGame.getEngine().draw(canvas);
     }
 
     private void drawGameTitle(Canvas canvas) {
         int gameTitleHeight = DimenRes.getGameTitleHeight();
         int screenWidth = DimenRes.getScreenWidth();
 
-        Game.drawGameTitleShape(canvas);
+        ShapeColorGame.drawGameTitleShape(canvas);
         canvas.drawLine(0, gameTitleHeight, screenWidth, gameTitleHeight + 1, GameUtils.getGameTitleLinePaint());
     }
 
@@ -102,20 +101,9 @@ public class ShapeGameDisplayThread extends DisplayThread {
     @Override
     protected void tryToSleep() {
         try {
-            if (Game.isGameOver()) {
-//                gameOverCyclicBarrier.await(3, TimeUnit.SECONDS);
-            } else
-                Thread.sleep(Game.getGameSpeedForCurrentGame());
+            Thread.sleep(ShapeColorGame.getGameSpeedForCurrentGame());
         } catch (InterruptedException ex) {
             //TODO: Log
-        } /*catch (BrokenBarrierException e) {
-        } catch (TimeoutException e) {
-            e.printStackTrace();
         }
-        finally {
-            gameOverCyclicBarrier.reset();
-            right.set(INITIAL_FROG_POSITION);
-            bottom.set(INITIAL_FROG_POSITION);
-        }*/
     }
 }
