@@ -30,7 +30,7 @@ public class LearningShapesGenerator {
     }
 
     private static Rect initAreaToGenerate() {
-        return new Rect(0, 0, DimenRes.getScreenWidth(),
+        return new Rect(0, 0, DimenRes.getScreenWidth() - GameUtils.LEARNING_FROG_SMALL_RIGHT,
                 DimenRes.getScreenHeight());
     }
 

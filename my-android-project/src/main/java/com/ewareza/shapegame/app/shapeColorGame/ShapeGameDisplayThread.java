@@ -1,7 +1,6 @@
 package com.ewareza.shapegame.app.shapeColorGame;
 
 import android.graphics.Canvas;
-import android.graphics.drawable.AnimationDrawable;
 import android.graphics.drawable.Drawable;
 import android.view.SurfaceHolder;
 import com.ewareza.shapegame.app.DisplayThread;
@@ -9,26 +8,25 @@ import com.ewareza.shapegame.app.utils.GameUtils;
 import com.ewareza.shapegame.resources.DimenRes;
 import com.ewareza.shapegame.resources.ImageResources;
 
-import java.util.concurrent.CyclicBarrier;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.logging.Logger;
 
 public class ShapeGameDisplayThread extends DisplayThread {
     private final static Logger Log = Logger.getLogger(ShapeGameDisplayThread.class.getName());
-    private final int INITIAL_FROG_POSITION = 150;
-    private AtomicInteger right = new AtomicInteger(INITIAL_FROG_POSITION);
-    private AtomicInteger bottom = new AtomicInteger(INITIAL_FROG_POSITION);
+    private AtomicInteger left;
+    private AtomicInteger top;
+    private AtomicInteger right;
+    private AtomicInteger bottom;
 
-    private CyclicBarrier gameOverCyclicBarrier;
-
-    public ShapeGameDisplayThread(SurfaceHolder surfaceHolder, CyclicBarrier gameOverCyclicBarrier) {
+    public ShapeGameDisplayThread(SurfaceHolder surfaceHolder) {
         super(surfaceHolder);
-        this.gameOverCyclicBarrier = gameOverCyclicBarrier;
+        initGameOverImagePosition();
     }
 
     @Override
     protected void updatePhysics() {
-        ShapeColorGame.updatePhysics();
+        if (!ShapeColorGame.isGameOver())
+            ShapeColorGame.updatePhysics();
     }
 
     @Override
@@ -36,48 +34,21 @@ public class ShapeGameDisplayThread extends DisplayThread {
         clearScreen(canvas);
         drawGameTitle(canvas);
         drawShapes(canvas);
-        drawFrog(canvas);
 
         if (ShapeColorGame.isGameOver()) {
-            AnimationDrawable drawable = ImageResources.getTalkingFrogAnimation();
-            drawable.start();
-            drawGameOver(canvas);
+            Drawable drawable = GameOverImageFactory.getGameOverImage();
+            drawable.setBounds(left.addAndGet(10), top.addAndGet(-10), right.addAndGet(10), bottom.addAndGet(-10));
+            drawable.draw(canvas);
+        } else {
+            initGameOverImagePosition();
         }
     }
 
-    private void drawFrog(Canvas canvas) {
-        if (!ShapeColorGame.isGameOver()) {
-            right.set(INITIAL_FROG_POSITION);
-            bottom.set(INITIAL_FROG_POSITION);
-        }
-        AnimationDrawable drawable = ImageResources.getTalkingFrogAnimation();
-        drawable.setBounds(0, 0, right.get(), bottom.get());
-        drawable.draw(canvas);
-    }
-
-    private void drawGameOver(Canvas canvas) {
-        if (bottom.get() + 10 < DimenRes.getScreenHeight() / 2) {
-            right.addAndGet(10);
-            bottom.addAndGet(10);
-        }
-
-        /*Drawable drawable = ImageResources.getInstance().getLearningFrog();
-        drawable.setBounds(0, 0, screenWidth, screenHeight);
-        drawable.draw(canvas);
-        /*ImageResources.getTalkingFrogAnimation().start();
-        //@TODO refactor
-        int screenHeight = DimenRes.getScreenHeight();
-        int screenWidth = DimenRes.getScreenWidth();
-
-        drawGameOverImage(canvas, screenHeight, screenWidth);*/
-    }
-
-    private void drawGameOverImage(Canvas canvas, int screenHeight, int screenWidth) {
-       /* canvas.drawRect(0, screenHeight / 2 - 100, screenWidth,
-                screenHeight / 2 + 100, GameUtils.getGameOverBackGroundPaint());*/
-        /*Drawable drawable = ImageResources.getInstance().getLearningFrog();
-        drawable.setBounds(0, 0, screenWidth, screenHeight);
-        drawable.draw(canvas);*/
+    private void initGameOverImagePosition() {
+        left = new AtomicInteger(0);
+        top = new AtomicInteger(DimenRes.getScreenHeight() - 200);
+        right = new AtomicInteger(200);
+        bottom = new AtomicInteger(DimenRes.getScreenHeight());
     }
 
     private void drawShapes(Canvas canvas) {
@@ -101,7 +72,8 @@ public class ShapeGameDisplayThread extends DisplayThread {
     @Override
     protected void tryToSleep() {
         try {
-            Thread.sleep(ShapeColorGame.getGameSpeedForCurrentGame());
+            if (!ShapeColorGame.isGameOver())
+                Thread.sleep(ShapeColorGame.getGameSpeedForCurrentGame());
         } catch (InterruptedException ex) {
             //TODO: Log
         }

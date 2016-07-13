@@ -20,16 +20,22 @@ public class LearningGameActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(getLearningActivityView());
+    }
 
+    private LinearLayout getLearningActivityView() {
         LinearLayout layout = new LinearLayout(this);
         layout.setOrientation(LinearLayout.HORIZONTAL);
 
         layout.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
         layout.setBackgroundColor(Color.WHITE);
 
-        LearningView learningView = new LearningView(this);
-        learningView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+        layout.addView(getFrogView());
+        layout.addView(getLearningView());
+        return layout;
+    }
 
+    private ImageView getFrogView() {
         ImageView frogView = new ImageView(this);
         frogView.setVisibility(View.VISIBLE);
         frogView.setBackgroundResource(R.drawable.game_over_animation);
@@ -38,10 +44,13 @@ public class LearningGameActivity extends Activity {
 
         ImageResources.setTalkingFrogAnimation(frogAnimation);
 
-        layout.addView(frogView);
-        layout.addView(learningView);
+        return frogView;
+    }
 
-        setContentView(layout);
+    private LearningView getLearningView() {
+        LearningView learningView = new LearningView(this);
+        learningView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+        return learningView;
     }
 
     @Override
@@ -62,7 +71,7 @@ public class LearningGameActivity extends Activity {
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        int x = (int) event.getX();
+        int x = (int) event.getX() - GameUtils.LEARNING_FROG_SMALL_RIGHT;
         int y = (int) event.getY();
 
         if (event.getAction() == MotionEvent.ACTION_DOWN)

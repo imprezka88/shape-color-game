@@ -9,11 +9,15 @@ public class Splash extends AbstractShape {
 
     public Splash(Rect associatedRect, int color, Drawer drawer) {
         super(associatedRect, color, drawer);
-
     }
 
     @Override
     public String getName() {
         return SPLASH;
+    }
+
+    @Override
+    public Object clone() throws CloneNotSupportedException {
+        return new Splash(new Rect(associatedRect), getColor(), drawer);
     }
 }

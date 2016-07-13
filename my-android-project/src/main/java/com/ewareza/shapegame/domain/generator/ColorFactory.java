@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Random;
 
 public class ColorFactory {
-    private final static List<Integer> colors = new ArrayList<>();
+    private final static List<Integer> shapeColors = new ArrayList<>();
 
     static {
         initColors();
@@ -15,12 +15,13 @@ public class ColorFactory {
 
     public static int generateColor() {
         Random random = new Random();
-        return colors.get(random.nextInt(colors.size()));
+        return shapeColors.get(random.nextInt(shapeColors.size()));
     }
 
     static void initColors() {
         for (ColorWithIndex colorWithIndex : ColorWithIndex.values()) {
-            colors.add(colorWithIndex.colorIndex);
+            if (colorWithIndex != ColorWithIndex.WHITE)
+                shapeColors.add(colorWithIndex.colorIndex);
         }
     }
 
@@ -32,7 +33,7 @@ public class ColorFactory {
         PINK("pink", Color.MAGENTA),
 
         YELLOW("yellow", Color.YELLOW),
-        BLACK("black", Color.BLACK),
+        WHITE("white", Color.WHITE),
 
         VIOLET("violet", Color.rgb(110, 0, 110));
 

@@ -14,4 +14,9 @@ public class Star extends AbstractShape {
     public String getName() {
         return STAR;
     }
+
+    @Override
+    public Object clone() throws CloneNotSupportedException {
+        return new Star(new Rect(associatedRect), getColor());
+    }
 }

@@ -12,8 +12,8 @@ import java.util.List;
 import java.util.Random;
 
 public class GameUtils {
-    public static final int LEARNING_SHAPE_TOP = 40;
-    public static final int LEARNING_SHAPE_LEFT = 0;
+    public static final int LEARNING_SHAPE_TOP = 0;
+    public static final int LEARNING_SHAPE_LEFT = DimenRes.getScreenWidth() / 2;
 
     public static final int LEARNING_FROG_SMALL_LEFT = 0;
     public static final int LEARNING_FROG_SMALL_RIGHT = 400;
@@ -50,7 +50,7 @@ public class GameUtils {
 
     private static Paint initBackgroundPaint() {
         gameBackgroundPaint = new Paint();
-        gameBackgroundPaint.setColor(Color.BLACK);
+        gameBackgroundPaint.setColor(Color.WHITE);
 
         return gameBackgroundPaint;
     }
@@ -72,7 +72,7 @@ public class GameUtils {
     }
 
     public static int getGameTitleShapeColor() {
-        return Color.BLUE;
+        return Color.WHITE;
     }
 
     public static Paint getFilledPaint() {

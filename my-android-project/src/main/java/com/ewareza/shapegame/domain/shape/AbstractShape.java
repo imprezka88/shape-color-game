@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Random;
 import java.util.logging.Logger;
 
-public abstract class AbstractShape implements Shape {
+public abstract class AbstractShape implements Shape, Cloneable {
     private static final Logger LOGGER = Logger.getLogger(AbstractShape.class.getName());
 
     private static final int GROW_STEP = 8;
@@ -69,9 +69,9 @@ public abstract class AbstractShape implements Shape {
 
     public void growAndFallDown() {
         if(canMoveAndGrow()) {
-//            associatedRect.left -= GROW_STEP/2 + MOVE_RIGHT_STEP;
+            associatedRect.left -= GROW_STEP / 2;
             associatedRect.top += MOVE_DOWN_STEP;
-            associatedRect.right += GROW_STEP;
+            associatedRect.right += GROW_STEP / 2;
             associatedRect.bottom += MOVE_DOWN_STEP + GROW_STEP;
         }
     }
@@ -97,4 +97,7 @@ public abstract class AbstractShape implements Shape {
     public void setMoveRight(boolean moveRight) {
         this.moveRight = moveRight;
     }
+
+    @Override
+    public abstract Object clone() throws CloneNotSupportedException;
 }

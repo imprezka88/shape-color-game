@@ -14,4 +14,9 @@ public class Oval extends AbstractShape {
     public String getName() {
         return OVAL;
     }
+
+    @Override
+    public Object clone() throws CloneNotSupportedException {
+        return new Oval(new Rect(associatedRect), getColor());
+    }
 }

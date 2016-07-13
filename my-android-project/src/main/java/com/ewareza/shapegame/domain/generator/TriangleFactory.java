@@ -25,7 +25,7 @@ public class TriangleFactory extends ShapeFactory {
 
     @Override
     public AbstractShape getRandomShapeInNextRow(Rect areaToGenerateShape, int shapeIndex) {
-        Square square = (Square) SquareFactory.getInstance().getRandomShapeInNextRow(areaToGenerateShape, shapeIndex);
+        Square square = (Square) SquareFactory.getInstance().getRandomShape(areaToGenerateShape);
         return new Triangle(square.getAssociatedRect(), ColorFactory.generateColor());
     }
 

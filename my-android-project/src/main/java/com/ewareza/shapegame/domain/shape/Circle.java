@@ -19,6 +19,11 @@ public class Circle extends AbstractShape {
         return CIRCLE;
     }
 
+    @Override
+    public Object clone() throws CloneNotSupportedException {
+        return new Circle(getAssociatedRect(), getColor());
+    }
+
     //@TODO inner class or separate class??
     public static class CircleFactory extends ShapeFactory {
         private static final CircleFactory INSTANCE = new CircleFactory(Circle.class);
@@ -33,7 +38,7 @@ public class Circle extends AbstractShape {
 
         @Override
         public AbstractShape getRandomShapeInNextRow(Rect areaToGenerateShape, int shapeIndex) {
-            Square square = (Square) SquareFactory.getInstance().getRandomShapeInNextRow(areaToGenerateShape, shapeIndex);
+            Square square = (Square) SquareFactory.getInstance().getRandomShape(areaToGenerateShape);
             return new Circle(square.getAssociatedRect(), ColorFactory.generateColor());
         }
 

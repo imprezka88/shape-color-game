@@ -29,8 +29,8 @@ public enum RandomShapesFactory {
         currentLookedForShapeFactory = null;
         List<AbstractShape> shapes = new ArrayList<>();
         int shapesHight = DimenRes.getScreenHeight() - DimenRes.getGameTitleHeight();
-        int numberOfShapes = (int) Math.floor(shapesHight / ShapeFactory.getMaxRectSize());
-        GameUtils.setPaddingBetweenShapes((shapesHight - numberOfShapes * ShapeFactory.getMaxRectSize()) / numberOfShapes);
+        int numberOfShapes = generateRandomNumberOfShapes(); //(int) Math.floor(shapesHight / ShapeFactory.getMaxRectSize());
+//        GameUtils.setPaddingBetweenShapes((shapesHight - numberOfShapes * ShapeFactory.getMaxRectSize()) / numberOfShapes);
 
         for (int i = 0; i < numberOfShapes; i++) {
             generateShapeIfPossible(shapes, i);
@@ -72,7 +72,7 @@ public enum RandomShapesFactory {
             currentLookedForShapeFactory = shapeFactory;
 
 
-        return shapeFactory.getRandomShapeInNextRow(areaToShowShapes, shapeIndex);
+        return shapeFactory.getRandomShape(areaToShowShapes);
     }
 
     private ShapeFactory getRandomShapeFactory() {

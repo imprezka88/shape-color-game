@@ -13,4 +13,9 @@ public class Square extends Rectangle {
     public String getName() {
         return SQUARE;
     }
+
+    @Override
+    public Object clone() throws CloneNotSupportedException {
+        return new Square(new Rect(associatedRect), getColor());
+    }
 }

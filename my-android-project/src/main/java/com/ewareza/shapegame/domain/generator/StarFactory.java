@@ -19,7 +19,7 @@ public class StarFactory extends ShapeFactory {
 
     @Override
     public AbstractShape getRandomShapeInNextRow(Rect areaToGenerateShape, int shapeIndex) {
-        Square square = (Square) SquareFactory.getInstance().getRandomShapeInNextRow(areaToGenerateShape, shapeIndex);
+        Square square = (Square) SquareFactory.getInstance().getRandomShape(areaToGenerateShape);
         return new Star(square.getAssociatedRect(), ColorFactory.generateColor());
     }
 

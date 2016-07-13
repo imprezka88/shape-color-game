@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 
-public class ShapeColorGame extends Game {
+public abstract class ShapeColorGame extends Game {
     private static GameEngine engine;
     private static List<Integer> gameSpeeds = Arrays.asList(500, 300, 100, 50, 0);
     private static List<Integer> moveSteps = Arrays.asList(0, 0, 1, 1, 1, 2, 3, 4, 5, 10, 15);

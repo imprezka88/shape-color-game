@@ -1,16 +1,22 @@
 package com.ewareza.shapegame.app.shapeColorGame;
 
 import android.app.Activity;
+import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.Point;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import com.ewareza.android.R;
 import com.ewareza.shapegame.app.Game;
+import com.ewareza.shapegame.app.learning.LearningGameActivity;
 import com.ewareza.shapegame.app.utils.GameUtils;
 import com.ewareza.shapegame.resources.DimenRes;
 import com.ewareza.shapegame.resources.ImageResources;
@@ -39,35 +45,99 @@ public class ShapeGameActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         gameStartCountDownLatch = new CountDownLatch(1);
-        Bundle b = getIntent().getExtras();
-        String gameType = "";
-        if (b != null)
-            gameType = b.getString(GameUtils.GAME_TYPE);
-
-        shapeColorGame = new ShapeColorGame(gameType);
+        shapeColorGame = ShapeColorGameFactory.getGame(getCurrentGameType());
 
         gameThread = new GameThread(gameStartCountDownLatch, gameOverCyclicBarrier);
         gameThread.start();
-        gameView = new GameView(this, gameStartCountDownLatch, gameOverCyclicBarrier);
 
+        setContentView(getView());
+    }
+
+    private FrameLayout getView() {
         FrameLayout frameLayout = new FrameLayout(this);
 
         frameLayout.setLayoutParams(new ViewGroup.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.MATCH_PARENT));
 
+        gameView = new GameView(this, gameStartCountDownLatch, gameOverCyclicBarrier);
+
+        frameLayout.addView(gameView);
+//        frameLayout.addView(getLearningImageButton());
+        frameLayout.addView(getNextGameImageButton());
+        frameLayout.addView(getFrogView());
+        return frameLayout;
+    }
+
+    private ImageView getFrogView() {
         ImageView frogView = new ImageView(this);
         frogView.setVisibility(View.VISIBLE);
         frogView.setBackgroundResource(R.drawable.game_over_animation);
         frogAnimation = (AnimationDrawable) frogView.getBackground();
         ImageResources.setTalkingFrogAnimation(frogAnimation);
 
-        frogView.setLayoutParams(new ViewGroup.LayoutParams(200, 200));
+        RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(200, DimenRes.getGameTitleHeight());
+        params.setMargins(0, 5, 5, 5);
 
-        frameLayout.addView(gameView);
-//        frameLayout.addView(frogView);
+        frogView.setLayoutParams(params);
 
-        setContentView(frameLayout);
+        frogView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ShapeGameActivity.this, LearningGameActivity.class);
+                finish();
+                startActivity(intent);
+            }
+        });
+
+        return frogView;
+    }
+
+    private ImageButton getLearningImageButton() {
+        ImageButton learningButton = new ImageButton(this);
+        learningButton.setBackgroundColor(Color.WHITE);
+        learningButton.setBackgroundResource(ImageResources.getLearningImageButtonIdentifier());
+        FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(200, DimenRes.getGameTitleHeight(), Gravity.LEFT);
+        learningButton.setLayoutParams(params);
+        learningButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ShapeGameActivity.this, LearningGameActivity.class);
+                finish();
+                startActivity(intent);
+            }
+        });
+        return learningButton;
+    }
+
+    private ImageButton getNextGameImageButton() {
+        ImageButton nextGameButton = new ImageButton(this);
+        nextGameButton.setBackgroundColor(Color.WHITE);
+        nextGameButton.setBackgroundResource(shapeColorGame.getNextGameImageIdentifier());
+        FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(200, DimenRes.getGameTitleHeight() - 20, Gravity.RIGHT);
+        params.setMargins(0, 10, 10, 10);
+        nextGameButton.setLayoutParams(params);
+        nextGameButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = getIntent();
+                Bundle b = new Bundle();
+                b.putString(GameUtils.GAME_TYPE, shapeColorGame.getNextGameName());
+                intent.putExtras(b);
+                finish();
+                startActivity(intent);
+            }
+        });
+        return nextGameButton;
+    }
+
+    private String getCurrentGameType() {
+        Bundle b = getIntent().getExtras();
+        String gameType = "";
+
+        if (b != null)
+            gameType = b.getString(GameUtils.GAME_TYPE);
+        return gameType;
     }
 
     @Override
@@ -83,8 +153,9 @@ public class ShapeGameActivity extends Activity {
             int y = (int) event.getY();
 
             if (x < DimenRes.getScreenWidth() && y < DimenRes.getScreenHeight()) {
-                if (ShapeColorGame.isGameOver())
+                if (ShapeColorGame.isGameOver()) {
                     tryToAwaitOnBarrier();
+                }
                 else
                     gameThread.onScreenTouched(new Point(x, y));
             }

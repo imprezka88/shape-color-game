@@ -41,8 +41,8 @@ public class GameThread extends Thread {
                 gameEngine.onScreenTouched(currentTouchedPoint);
 
                 if (allShapesFound()) {
-                    gameEngine.playWonGame();
                     ShapeColorGame.setGameOver(true);
+                    gameEngine.playWonGame();
                     tryToAwaitWithTimeoutOnBarrier(gameOverCyclicBarrier, 3, TimeUnit.SECONDS);
                     ShapeColorGame.setGameOver(false);
                     gameEngine.generateNewGame();

@@ -14,4 +14,9 @@ public class Heart extends AbstractShape {
     public String getName() {
         return HEART;
     }
+
+    @Override
+    public Object clone() throws CloneNotSupportedException {
+        return new Heart(new Rect(associatedRect), getColor());
+    }
 }

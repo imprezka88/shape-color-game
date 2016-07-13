@@ -56,7 +56,7 @@
                     android:layout_width="200dp"
                     android:layout_height="120dp"
                     android:id="@+id/newLearningGameButton"
-                    android:src="@drawable/learning_mode_picture"
+                    android:src="@drawable/learning_button_image"
                     android:background="@drawable/new_game_border"
                     android:layout_marginRight="5dp"/>
 
@@ -84,7 +84,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="120dp"
                     android:id="@+id/newShapesGameButton"
-                    android:src="@drawable/shape_game"
+                    android:src="@drawable/shape_game_button_image"
                     android:clickable="true"
                     android:layout_marginRight="5dp"
                     android:background="@drawable/new_game_border"
@@ -114,7 +114,7 @@
                     android:layout_height="120dp"
                     android:id="@+id/newColorGameButton"
                     android:layout_weight="2.06"
-                    android:src="@drawable/color_game_button"
+                    android:src="@drawable/color_game_button_imgage"
                     android:background="@drawable/new_game_border"
                     android:visibility="visible"
                     android:layout_gravity="right"

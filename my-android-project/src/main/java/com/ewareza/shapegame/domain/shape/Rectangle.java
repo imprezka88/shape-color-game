@@ -15,6 +15,11 @@ public class Rectangle extends AbstractShape {
         return RECTANGLE;
     }
 
+    @Override
+    public Object clone() throws CloneNotSupportedException {
+        return new Rectangle(new Rect(associatedRect), getColor());
+    }
+
     public Rect asRect() {
         return associatedRect;
     }

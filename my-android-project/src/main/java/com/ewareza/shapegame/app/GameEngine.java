@@ -13,7 +13,7 @@ import java.util.logging.Logger;
 public class GameEngine {
     private final Object lock = new Object();
     private final SoundResources soundResources = SoundResources.INSTANCE;
-    Logger logger = Logger.getLogger(GameEngine.class.getName());
+    private Logger logger = Logger.getLogger(GameEngine.class.getName());
     private SingleGame currentSingleGame;
     private String gameType;
 

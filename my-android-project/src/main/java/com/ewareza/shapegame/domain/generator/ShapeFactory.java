@@ -16,8 +16,8 @@ public abstract class ShapeFactory {
     static
     {
         sideSizes.add(120);
-//        sideSizes.add(150);
-//        sideSizes.add(180);
+        sideSizes.add(150);
+        sideSizes.add(180);
 //        sideSizes.add(240);
     }
 
@@ -49,8 +49,9 @@ public abstract class ShapeFactory {
     }
 
     protected Point getRandomPointOnCanvas(Rect areaToGenerateShape) {
-        int x = GameUtils.getRandomInt(getMaxRectSize() + areaToGenerateShape.left, (int) (areaToGenerateShape.right - getMaxRectSize() * 1.5));
-        int y = GameUtils.getRandomInt(getMaxRectSize() + areaToGenerateShape.top, areaToGenerateShape.bottom - getMaxRectSize());
+        int padding = 5;
+        int x = GameUtils.getRandomInt(padding + areaToGenerateShape.left, (int) (areaToGenerateShape.right - getMaxRectSize() * 1.5));
+        int y = GameUtils.getRandomInt(padding + areaToGenerateShape.top, areaToGenerateShape.bottom - getMaxRectSize());
 
         return new Point(x, y);
     }

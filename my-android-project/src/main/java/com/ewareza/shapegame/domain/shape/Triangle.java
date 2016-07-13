@@ -14,4 +14,9 @@ public class Triangle extends AbstractShape {
     public String getName() {
         return TRIANGLE;
     }
+
+    @Override
+    public Object clone() throws CloneNotSupportedException {
+        return new Triangle(new Rect(associatedRect), getColor());
+    }
 }

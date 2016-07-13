@@ -36,7 +36,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         holder = getHolder();
         holder.addCallback(this);
 
-        displayThread = new ShapeGameDisplayThread(holder, gameOverCyclicBarrier);
+        displayThread = new ShapeGameDisplayThread(holder);
         setFocusable(true);
     }
 
@@ -44,7 +44,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
     public void surfaceCreated(SurfaceHolder holder) {
         if (!displayThread.isRunning()) {
             //@TODO check if needed
-            displayThread = new ShapeGameDisplayThread(holder, gameOverCyclicBarrier);
+            displayThread = new ShapeGameDisplayThread(holder);
             tryToAwaitOnLatch();
             displayThread.setRunning(true);
             displayThread.start();

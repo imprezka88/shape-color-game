@@ -12,8 +12,42 @@ public enum ImageResources implements Resources {
     private static Drawable gameOverBackground;
     private static AnimationDrawable learningFrog;
     private static AnimationDrawable talkingFrogAnimation;
+    private static int colorGameImageIdentifier;
+    private static int shapeGameImageIdentifier;
+    private static int learningImageButtonIdentifier;
+    private static Drawable shapeGameImage;
+    private static Drawable colorGameImage;
+    private static Drawable baloons;
     private Drawable gameBackground;
     private Context context;
+
+    public static Drawable getBaloons() {
+        return baloons;
+    }
+
+    public static Drawable getColorGameImage() {
+        return colorGameImage;
+    }
+
+    public static Drawable getShapeGameImage() {
+        return shapeGameImage;
+    }
+
+    public static int getShapeGameImageIdentifier() {
+        return shapeGameImageIdentifier;
+    }
+
+    public static int getLearningImageButtonIdentifier() {
+        return learningImageButtonIdentifier;
+    }
+
+    public static void setLearningImageButtonIdentifier(int learningImageButtonIdentifier) {
+        ImageResources.learningImageButtonIdentifier = learningImageButtonIdentifier;
+    }
+
+    public static int getColorGameImageIdentifier() {
+        return colorGameImageIdentifier;
+    }
 
     public static ImageResources getInstance() {
         return INSTANCE;
@@ -37,6 +71,13 @@ public enum ImageResources implements Resources {
         gameBackground = context.getResources().getDrawable(R.drawable.game_background_clouds);
         gameOverBackground = context.getResources().getDrawable(R.drawable.game_over_animation);
         learningFrog = (AnimationDrawable) context.getResources().getDrawable(R.drawable.game_over_animation);
+        colorGameImageIdentifier = R.drawable.color_game_button_imgage;
+        shapeGameImageIdentifier = R.drawable.shape_game_button_image;
+        learningImageButtonIdentifier = R.drawable.learning_button_image;
+
+        shapeGameImage = context.getResources().getDrawable(shapeGameImageIdentifier);
+        colorGameImage = context.getResources().getDrawable(colorGameImageIdentifier);
+        baloons = context.getResources().getDrawable(R.drawable.balloons);
     }
 
     public Drawable getGameBackground() {

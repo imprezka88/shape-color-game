@@ -97,7 +97,7 @@ public enum SoundResources implements Resources {
         if (Game.getSoundsEnabled()) {
             mainMenuSound = resetSoundIfIsPlaying(mainMenuSound, R.raw.main_menu1);
             mainMenuSound = MediaPlayer.create(context, R.raw.main_menu1);
-            mainMenuSound.setVolume((float) 1, (float) 1);
+            mainMenuSound.setVolume((float) 0.5, (float) 0.5);
             mainMenuSound.setLooping(true);
             mainMenuSound.start();
         }
@@ -109,10 +109,6 @@ public enum SoundResources implements Resources {
 
     public static void turnDownMainScreenSound() {
         mainMenuSound.setVolume((float) 0.1, (float) 0.1);
-    }
-
-    public static void turnUpMainScreenSound() {
-        mainMenuSound.setVolume((float) 1, (float) 1);
     }
 
     public static void playStartLearningPhaseOneSound() {

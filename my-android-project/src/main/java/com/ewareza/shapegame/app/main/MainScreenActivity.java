@@ -64,7 +64,6 @@ public class MainScreenActivity extends Activity {
                 b.putString(GameUtils.GAME_TYPE, GameUtils.SHAPE);
                 intent.putExtras(b);
                 startActivity(intent);
-                startActivity(intent);
             }
         });
 
