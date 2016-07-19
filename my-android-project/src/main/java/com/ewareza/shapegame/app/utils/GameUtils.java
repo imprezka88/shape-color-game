@@ -3,6 +3,8 @@ package com.ewareza.shapegame.app.utils;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
+import android.os.Bundle;
+import com.ewareza.shapegame.domain.factory.ColorFactory;
 import com.ewareza.shapegame.domain.shape.AbstractShape;
 import com.ewareza.shapegame.resources.DimenRes;
 
@@ -12,40 +14,28 @@ import java.util.List;
 import java.util.Random;
 
 public class GameUtils {
+    public static final int LEARNING_FROG_WIDTH = 300;
+    public static final int LEARNING_FROG_HEIGHT = 300;
+
     public static final int LEARNING_SHAPE_TOP = 0;
-    public static final int LEARNING_SHAPE_LEFT = DimenRes.getScreenWidth() / 2;
+    public static final int LEARNING_SHAPE_LEFT = LEARNING_FROG_WIDTH + (DimenRes.getScreenWidth() - LEARNING_FROG_WIDTH) / 2 - 100;
 
-    public static final int LEARNING_FROG_SMALL_LEFT = 0;
-    public static final int LEARNING_FROG_SMALL_RIGHT = 400;
-    public static final int LEARNING_FROG_SMALL_BOTTOM = 400;
-    public static final int LEARNING_FROG_SMALL_TOP = 0;
-
-    public static final int LEARNING_FROG_BIG_LEFT = 0;
-    public static final int LEARNING_FROG_BIG_TOP = 0;
-    public static final int LEARNING_FROG_BIG_RIGHT = DimenRes.getScreenWidth() - 100;
-    public static final int LEARNING_FROG_BIG_BOTTOM = DimenRes.getScreenHeight() - 100;
     public static final String GAME_TYPE = "gameType";
     public static final String SHAPE = "shape";
     public static final String COLOR = "color";
+    public static final int PADDING = 10;
+    public static final String RESOURCE_PACKAGE = "com.ewareza.android";
+    public static final String RESOURCE_TYPE_DRAWABLE = "drawable";
+    public static final String RESOURCE_TYPE_ID = "id";
+    public static final int LEARNING_SHAPE_ANIMATION_FRAME_DURATION = 200;
+    public static final String PHASE_ONE = "phaseOne";
     private static final Random random = new Random();
-
     private static Paint gameBackgroundPaint = initBackgroundPaint();
 
-    private static Paint gameOverBackGroundPaint = initGameOverBackgroundPaint();
-    private static Paint gameOverTextPaint = initGameOverTextPaint();
     private static Paint gameTitleLinePaint = initLinePaint();
-    private static Paint filledPaint = initFilledPaint();
     private static int paddingBetweenShapes;
 
     private GameUtils() {
-    }
-
-    private static Paint initFilledPaint() {
-        Paint paint = new Paint();
-        paint.setStyle(Paint.Style.FILL);
-        paint.setStrokeWidth(10);
-
-        return paint;
     }
 
     private static Paint initBackgroundPaint() {
@@ -71,19 +61,8 @@ public class GameUtils {
         return random.nextInt(1 + to - from) + from;
     }
 
-    public static int getGameTitleShapeColor() {
-        return Color.WHITE;
-    }
-
-    public static Paint getFilledPaint() {
-        return filledPaint;
-    }
-
-    public static Paint initGameOverBackgroundPaint() {
-        gameOverBackGroundPaint = new Paint();
-        gameOverBackGroundPaint.setColor(Color.DKGRAY);
-
-        return gameOverBackGroundPaint;
+    public static ColorFactory.Color getGameTitleShapeColor() {
+        return ColorFactory.Color.SHAPE_TITLE;
     }
 
     public static Paint initLinePaint() {
@@ -94,33 +73,8 @@ public class GameUtils {
         return gameTitleLinePaint;
     }
 
-    public static Paint initGameOverTextPaint() {
-        gameOverTextPaint = new Paint();
-        gameOverTextPaint.setColor(Color.MAGENTA);
-        gameOverTextPaint.setTextAlign(Paint.Align.CENTER);
-        gameOverTextPaint.setTextSize(DimenRes.getGameOverFontSize());
-
-        return gameOverTextPaint;
-    }
-
-    public static Paint getGameBackgroundPaint() {
-        return gameBackgroundPaint;
-    }
-
-    public static Paint getGameOverBackGroundPaint() {
-        return gameOverBackGroundPaint;
-    }
-
-    public static Paint getGameOverTextPaint() {
-        return gameOverTextPaint;
-    }
-
     public static Paint getGameTitleLinePaint() {
         return gameTitleLinePaint;
-    }
-
-    public static int getLearningShapeColor() {
-        return Color.BLUE;
     }
 
     public static boolean collidesWithExistingShapes(AbstractShape shapeToExamine, List<AbstractShape> shapes) {
@@ -151,11 +105,11 @@ public class GameUtils {
         return new Rect(rect.left + padding, rect.top + padding, rect.right - padding, rect.bottom - padding);
     }
 
-    public static int getPaddingBetweenShapes() {
-        return paddingBetweenShapes;
-    }
+    public static String getCurrentGameType(Bundle bundle) {
+        String gameType = "";
 
-    public static void setPaddingBetweenShapes(int paddingBetweenShapes) {
-        GameUtils.paddingBetweenShapes = paddingBetweenShapes;
+        if (bundle != null)
+            gameType = bundle.getString(GAME_TYPE);
+        return gameType;
     }
 }

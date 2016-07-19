@@ -1,0 +1,94 @@
+<!-- NEXUS 10-->
+<resources>
+
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <!-- MAIN SCREEN-->
+    <dimen name="main_sounds_buttons_margin_right">30dp</dimen>
+    <dimen name="main_sounds_buttons_margin_top">30dp</dimen>
+
+    <dimen name="main_sounds_button_width">90dp</dimen>
+    <dimen name="main_sounds_button_height">90dp</dimen>
+
+    <dimen name="main_speaking_button_width">90dp</dimen>
+    <dimen name="main_speaking_button_height">90dp</dimen>
+    <dimen name="main_speaking_button_margin_left">10dp</dimen>
+
+    <dimen name="main_sounds_button_padding">10dp</dimen>
+
+    <dimen name="main_button_panel_width">500dp</dimen>
+    <dimen name="main_button_panel_height">120dp</dimen>
+
+    <dimen name="main_start_game_button_width">400dp</dimen>
+    <dimen name="main_start_game_button_height">250dp</dimen>
+
+    <dimen name="text_large">50sp</dimen>
+
+    <!--LEARNING-->
+    <dimen name="square_size">150dp</dimen>
+    <dimen name="rect_width">200dp</dimen>
+
+    <dimen name="learning_frog_width">250dp</dimen>
+    <dimen name="learning_frog_height">250dp</dimen>
+    <dimen name="learning_frog_margin_left">100dp</dimen>
+    <dimen name="learning_frog_margin_bottom">5dp</dimen>
+
+    <!-- START GAME BUTTONS-->
+    <dimen name="learning_start_game_button_width">125dp</dimen>
+    <dimen name="learning_start_game_button_height">100dp</dimen>
+    <dimen name="learning_start_game_button_left_margin_left">10dp</dimen>
+    <dimen name="learning_start_game_buttons_margin_right">15dp</dimen>
+    <dimen name="learning_start_game_buttons_margin_bottom">15dp</dimen>
+
+    <!-- RECTANGLE (LEFT BOTTOM CLOUD) -->
+    <dimen name="learning_cloud_left_bottom_width">@dimen/rect_width</dimen>
+    <dimen name="learning_cloud_left_bottom_height">@dimen/square_size</dimen>
+
+    <dimen name="learning_cloud_left_bottom_margin_left">40dp</dimen>
+    <dimen name="learning_cloud_left_bottom_margin_top">250dp</dimen>
+
+    <!-- CIRCLE AND OVAL (LEFT TOP CLOUD)-->
+    <dimen name="learning_cloud_left_top_margin_left">120dp</dimen>
+    <dimen name="learning_cloud_left_top_margin_top">70dp</dimen>
+
+    <!-- CIRCLE -->
+    <dimen name="learning_cloud_left_top_shape_left_width">@dimen/square_size</dimen>
+    <dimen name="learning_cloud_left_top_shape_left_height">@dimen/square_size</dimen>
+
+    <!-- OVAL -->
+    <dimen name="learning_cloud_left_top_shape_right_width">@dimen/rect_width</dimen>
+    <dimen name="learning_cloud_left_top_shape_right_height">@dimen/square_size</dimen>
+    <dimen name="learning_cloud_left_top_shape_right_margin_left">10dp</dimen>
+
+    <!-- SQUARE AND TRIANGLE (RIGHT TOP CLOUD) -->
+    <dimen name="learning_cloud_right_top_margin_left">650dp</dimen>
+    <dimen name="learning_cloud_right_top_margin_top">90dp</dimen>
+
+    <!-- SQUARE -->
+    <dimen name="learning_cloud_right_top_shape_left_width">@dimen/square_size</dimen>
+    <dimen name="learning_cloud_right_top_shape_left_height">@dimen/square_size</dimen>
+
+    <!-- TRIANGLE -->
+    <dimen name="learning_cloud_right_top_shape_right_width">@dimen/square_size</dimen>
+    <dimen name="learning_cloud_right_top_shape_right_height">@dimen/square_size</dimen>
+    <dimen name="learning_cloud_right_top_shape_right_margin_left">10dp</dimen>
+
+    <!-- STAR AND HEART (RIGHT BOTTOM CLOUD) -->
+    <dimen name="learning_cloud_right_bottom_margin_left">900dp</dimen>
+    <dimen name="learning_cloud_right_bottom_margin_top">210dp</dimen>
+
+    <!-- STAR -->
+    <dimen name="learning_cloud_right_bottom_shape_left_width">@dimen/square_size</dimen>
+    <dimen name="learning_cloud_right_bottom_shape_left_height">@dimen/square_size</dimen>
+
+    <!-- HEART -->
+    <dimen name="learning_cloud_right_bottom_shape_right_width">@dimen/square_size</dimen>
+    <dimen name="learning_cloud_right_bottom_shape_right_height">@dimen/square_size</dimen>
+    <dimen name="learning_cloud_right_bottom_shape_right_margin_left">10dp</dimen>
+
+    <!-- SHAPE COLOR GAME-->
+    <dimen name="gameTitleHeight">75dp</dimen>
+
+</resources>

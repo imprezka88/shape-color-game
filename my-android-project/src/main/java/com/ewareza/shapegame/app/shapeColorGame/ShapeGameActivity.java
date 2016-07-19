@@ -2,20 +2,17 @@ package com.ewareza.shapegame.app.shapeColorGame;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Color;
 import android.graphics.Point;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import com.ewareza.android.R;
 import com.ewareza.shapegame.app.Game;
+import com.ewareza.shapegame.app.GameEngine;
 import com.ewareza.shapegame.app.learning.LearningGameActivity;
 import com.ewareza.shapegame.app.utils.GameUtils;
 import com.ewareza.shapegame.resources.DimenRes;
@@ -28,10 +25,9 @@ import java.util.logging.Logger;
 public class ShapeGameActivity extends Activity {
     private final static Logger Log = Logger.getLogger(ShapeGameActivity.class.getName());
     private GameView gameView;
-    private CyclicBarrier gameOverCyclicBarrier = new CyclicBarrier(3);
+    private CyclicBarrier gameOverCyclicBarrier = new CyclicBarrier(2);
     private CountDownLatch gameStartCountDownLatch = new CountDownLatch(1);
-    private GameThread gameThread;
-    private AnimationDrawable frogAnimation;
+    private GameEngine gameEngine;
     private Game shapeColorGame;
 
     /**
@@ -45,60 +41,51 @@ public class ShapeGameActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         gameStartCountDownLatch = new CountDownLatch(1);
-        shapeColorGame = ShapeColorGameFactory.getGame(getCurrentGameType());
+        shapeColorGame = ShapeColorGameFactory.getGame(GameUtils.getCurrentGameType(getIntent().getExtras()));
+        gameEngine = ShapeColorGame.getEngine();
 
-        gameThread = new GameThread(gameStartCountDownLatch, gameOverCyclicBarrier);
-        gameThread.start();
-
-        setContentView(getView());
+        setContentView(R.layout.shape_color_game_screen);
+        initButtons();
     }
 
-    private FrameLayout getView() {
-        FrameLayout frameLayout = new FrameLayout(this);
-
-        frameLayout.setLayoutParams(new ViewGroup.LayoutParams(
-                ViewGroup.LayoutParams.MATCH_PARENT,
-                ViewGroup.LayoutParams.MATCH_PARENT));
-
-        gameView = new GameView(this, gameStartCountDownLatch, gameOverCyclicBarrier);
-
-        frameLayout.addView(gameView);
-//        frameLayout.addView(getLearningImageButton());
-        frameLayout.addView(getNextGameImageButton());
-        frameLayout.addView(getFrogView());
-        return frameLayout;
+    private void initButtons() {
+        initGameView();
+        initLearningButton();
+        initNextGameImageButton();
     }
 
-    private ImageView getFrogView() {
-        ImageView frogView = new ImageView(this);
-        frogView.setVisibility(View.VISIBLE);
-        frogView.setBackgroundResource(R.drawable.game_over_animation);
-        frogAnimation = (AnimationDrawable) frogView.getBackground();
-        ImageResources.setTalkingFrogAnimation(frogAnimation);
+    private FrameLayout initGameView() {
+        FrameLayout shapeGameLayout = (FrameLayout) findViewById(R.id.shape_color_game);
+        gameView = new GameView(this, gameStartCountDownLatch);
+        shapeGameLayout.addView(gameView, 0);
 
-        RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(200, DimenRes.getGameTitleHeight());
-        params.setMargins(0, 5, 5, 5);
+        return shapeGameLayout;
+    }
 
-        frogView.setLayoutParams(params);
+    private ImageView initLearningButton() {
+        ImageButton frogView = (ImageButton) findViewById(R.id.game_learning_frog);
 
         frogView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ShapeGameActivity.this, LearningGameActivity.class);
+                Bundle b = new Bundle();
+                b.putString(GameUtils.GAME_TYPE, GameUtils.PHASE_ONE);
+                intent.putExtras(b);
                 finish();
                 startActivity(intent);
             }
         });
+
+        AnimationDrawable frogAnimation = (AnimationDrawable) frogView.getBackground(); //AnimationUtils.loadAnimation(this, R.drawable.talking_frog_animation);
+        ImageResources.setTalkingFrogAnimation(frogAnimation);
 
         return frogView;
     }
 
     private ImageButton getLearningImageButton() {
         ImageButton learningButton = new ImageButton(this);
-        learningButton.setBackgroundColor(Color.WHITE);
         learningButton.setBackgroundResource(ImageResources.getLearningImageButtonIdentifier());
-        FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(200, DimenRes.getGameTitleHeight(), Gravity.LEFT);
-        learningButton.setLayoutParams(params);
         learningButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -110,13 +97,9 @@ public class ShapeGameActivity extends Activity {
         return learningButton;
     }
 
-    private ImageButton getNextGameImageButton() {
-        ImageButton nextGameButton = new ImageButton(this);
-        nextGameButton.setBackgroundColor(Color.WHITE);
+    private ImageButton initNextGameImageButton() {
+        ImageButton nextGameButton = (ImageButton) findViewById(R.id.game_next_game);
         nextGameButton.setBackgroundResource(shapeColorGame.getNextGameImageIdentifier());
-        FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(200, DimenRes.getGameTitleHeight() - 20, Gravity.RIGHT);
-        params.setMargins(0, 10, 10, 10);
-        nextGameButton.setLayoutParams(params);
         nextGameButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -128,16 +111,8 @@ public class ShapeGameActivity extends Activity {
                 startActivity(intent);
             }
         });
+
         return nextGameButton;
-    }
-
-    private String getCurrentGameType() {
-        Bundle b = getIntent().getExtras();
-        String gameType = "";
-
-        if (b != null)
-            gameType = b.getString(GameUtils.GAME_TYPE);
-        return gameType;
     }
 
     @Override
@@ -153,26 +128,34 @@ public class ShapeGameActivity extends Activity {
             int y = (int) event.getY();
 
             if (x < DimenRes.getScreenWidth() && y < DimenRes.getScreenHeight()) {
-                if (ShapeColorGame.isGameOver()) {
-                    tryToAwaitOnBarrier();
+                gameEngine.onScreenTouched(new Point(x, y));
+
+                if (allShapesFound()) {
+                    ShapeColorGame.setGameOver(true);
+                    gameEngine.playWonGame();
+                    tryToAwaitWithTimeoutOnBarrier(gameOverCyclicBarrier, 3, TimeUnit.SECONDS);
+                    gameEngine.generateNewGame();
+                    ShapeColorGame.setGameOver(false);
                 }
-                else
-                    gameThread.onScreenTouched(new Point(x, y));
             }
         }
 
         return true;
     }
 
-    private void tryToAwaitOnBarrier() {
+    private boolean allShapesFound() {
+        return gameEngine.getNumberOfLookedForShapesOnScreen() == 0;
+    }
+
+    private void tryToAwaitWithTimeoutOnBarrier(CyclicBarrier cyclicBarrier, int timeout, TimeUnit timeUnit) {
         try {
-            gameOverCyclicBarrier.await(3, TimeUnit.SECONDS);
+            cyclicBarrier.await(timeout, timeUnit);
         } catch (InterruptedException e) {
             e.printStackTrace();
         } catch (BrokenBarrierException e) {
             //@TODO
         } catch (TimeoutException e) {
-            e.printStackTrace();
+            //@TODO
         }
         finally {
             gameOverCyclicBarrier.reset();
@@ -184,8 +167,6 @@ public class ShapeGameActivity extends Activity {
         super.onPause();
         SoundResources.stopPlayingShapeGameSounds();
         gameView.stopDisplayThread();
-        gameThread.setIsRunning(false);
-        GameUtils.StopThread(gameThread);
     }
 
     @Override
@@ -199,7 +180,13 @@ public class ShapeGameActivity extends Activity {
         SoundResources.turnDownMainScreenSound();
         SoundResources.resumeMainMenuSound();
         shapeColorGame.setToInitialState();
-        gameThread.onStart();
+        startNewGame();
+        gameStartCountDownLatch.countDown();
+    }
+
+    private void startNewGame() {
+        ShapeColorGame.setToFirstGame();
+        gameEngine.generateNewGame();
     }
 
     @Override

@@ -3,7 +3,7 @@ package com.ewareza.shapegame.app.shapeColorGame.singleGame.generator;
 import android.graphics.Rect;
 import com.ewareza.shapegame.app.GameSettings;
 import com.ewareza.shapegame.app.utils.GameUtils;
-import com.ewareza.shapegame.domain.generator.ShapeFactory;
+import com.ewareza.shapegame.domain.factory.ShapeFactory;
 import com.ewareza.shapegame.domain.shape.AbstractShape;
 import com.ewareza.shapegame.resources.DimenRes;
 
@@ -28,9 +28,7 @@ public enum RandomShapesFactory {
     public List<AbstractShape> generateRandomShapes() {
         currentLookedForShapeFactory = null;
         List<AbstractShape> shapes = new ArrayList<>();
-        int shapesHight = DimenRes.getScreenHeight() - DimenRes.getGameTitleHeight();
-        int numberOfShapes = generateRandomNumberOfShapes(); //(int) Math.floor(shapesHight / ShapeFactory.getMaxRectSize());
-//        GameUtils.setPaddingBetweenShapes((shapesHight - numberOfShapes * ShapeFactory.getMaxRectSize()) / numberOfShapes);
+        int numberOfShapes = generateRandomNumberOfShapes();
 
         for (int i = 0; i < numberOfShapes; i++) {
             generateShapeIfPossible(shapes, i);

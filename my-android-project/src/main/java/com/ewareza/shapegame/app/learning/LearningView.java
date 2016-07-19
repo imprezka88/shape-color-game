@@ -3,7 +3,6 @@ package com.ewareza.shapegame.app.learning;
 import android.content.Context;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
-import com.ewareza.shapegame.app.utils.GameUtils;
 
 public class LearningView extends SurfaceView implements SurfaceHolder.Callback {
     private LearningDisplayThread learningDisplayThread;
@@ -22,6 +21,7 @@ public class LearningView extends SurfaceView implements SurfaceHolder.Callback 
         if (!learningDisplayThread.isRunning()) {
             //@TODO check if needed
             learningDisplayThread = new LearningDisplayThread(holder);
+            LearningGame.setFirstPhaseDisplayThread(learningDisplayThread);
             learningDisplayThread.setRunning(true);
             //@TODO change to learning sounds, change not to generate titleShape - take class in different way
             learningDisplayThread.start();
@@ -38,6 +38,6 @@ public class LearningView extends SurfaceView implements SurfaceHolder.Callback 
     @Override
     public void surfaceDestroyed(SurfaceHolder holder) {
         learningDisplayThread.setRunning(false);
-        GameUtils.StopThread(learningDisplayThread);
+//        GameUtils.StopThread(learningDisplayThread);
     }
 }

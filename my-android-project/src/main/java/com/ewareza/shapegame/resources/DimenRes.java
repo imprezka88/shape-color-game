@@ -11,11 +11,6 @@ public enum DimenRes implements Resources {
     private static int screenHeightInPixels;
     private static int screenWidthInPixels;
     private static int gameTitleHeight;
-    private static int gameOverFontSize;
-
-    public static int getGameOverFontSize() {
-        return gameOverFontSize;
-    }
 
     public static int getScreenHeight() {
         return screenHeightInPixels;
@@ -36,7 +31,6 @@ public enum DimenRes implements Resources {
     @Override
     public void init(Context context) {
         gameTitleHeight = context.getResources().getDimensionPixelSize(R.dimen.gameTitleHeight);
-        gameOverFontSize = context.getResources().getDimensionPixelSize(R.dimen.gameOverFontSize);
 
         DisplayMetrics metrics = new DisplayMetrics();
         WindowManager windowManager = (WindowManager) context

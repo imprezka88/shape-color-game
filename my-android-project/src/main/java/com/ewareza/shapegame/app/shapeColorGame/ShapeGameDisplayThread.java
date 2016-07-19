@@ -8,6 +8,7 @@ import com.ewareza.shapegame.app.utils.GameUtils;
 import com.ewareza.shapegame.resources.DimenRes;
 import com.ewareza.shapegame.resources.ImageResources;
 
+import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.logging.Logger;
 
@@ -17,6 +18,10 @@ public class ShapeGameDisplayThread extends DisplayThread {
     private AtomicInteger top;
     private AtomicInteger right;
     private AtomicInteger bottom;
+    private Drawable gameOverImage;
+    private AtomicBoolean gameOverImageSet = new AtomicBoolean(false);
+    private int gameOverImageVerticalSpeed = 10;
+    private int gameOverImageHorizontalSpeed = 3;
 
     public ShapeGameDisplayThread(SurfaceHolder surfaceHolder) {
         super(surfaceHolder);
@@ -32,23 +37,28 @@ public class ShapeGameDisplayThread extends DisplayThread {
     @Override
     protected void drawUpdatedView(Canvas canvas) {
         clearScreen(canvas);
-        drawGameTitle(canvas);
-        drawShapes(canvas);
 
         if (ShapeColorGame.isGameOver()) {
-            Drawable drawable = GameOverImageFactory.getGameOverImage();
-            drawable.setBounds(left.addAndGet(10), top.addAndGet(-10), right.addAndGet(10), bottom.addAndGet(-10));
-            drawable.draw(canvas);
+            if (!gameOverImageSet.get()) {
+                gameOverImage = GameOverImageFactory.getGameOverImage();
+                gameOverImageSet.set(true);
+            }
+
+            gameOverImage.setBounds(left.addAndGet(gameOverImageHorizontalSpeed), top.addAndGet(-gameOverImageVerticalSpeed), right.addAndGet(gameOverImageHorizontalSpeed), bottom.addAndGet(-gameOverImageVerticalSpeed));
+            gameOverImage.draw(canvas);
         } else {
             initGameOverImagePosition();
+            gameOverImageSet.set(false);
+            drawGameTitle(canvas);
+            drawShapes(canvas);
         }
     }
 
     private void initGameOverImagePosition() {
-        left = new AtomicInteger(0);
-        top = new AtomicInteger(DimenRes.getScreenHeight() - 200);
-        right = new AtomicInteger(200);
-        bottom = new AtomicInteger(DimenRes.getScreenHeight());
+        left = new AtomicInteger(DimenRes.getScreenWidth() / 2 - 400);
+        top = new AtomicInteger(DimenRes.getScreenHeight());
+        right = new AtomicInteger(DimenRes.getScreenWidth() / 2);
+        bottom = new AtomicInteger(DimenRes.getScreenHeight() + 400);
     }
 
     private void drawShapes(Canvas canvas) {

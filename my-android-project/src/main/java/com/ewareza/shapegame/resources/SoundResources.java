@@ -1,21 +1,26 @@
 package com.ewareza.shapegame.resources;
 
 import android.content.Context;
+import android.graphics.drawable.AnimationDrawable;
 import android.media.MediaPlayer;
 import com.ewareza.android.R;
 import com.ewareza.shapegame.app.Game;
 import com.ewareza.shapegame.app.learning.LearningGame;
-import com.ewareza.shapegame.domain.generator.ColorFactory;
+import com.ewareza.shapegame.domain.factory.ColorFactory;
 import com.ewareza.shapegame.domain.shape.AbstractShape;
+import com.ewareza.shapegame.domain.shape.Shape;
+
+import java.util.logging.Logger;
 
 //@TODO cache media players retrieved dynamically, one play method with sound enability check
 public enum SoundResources implements Resources {
     INSTANCE;
 
+    private static Logger Log = Logger.getLogger(SoundResources.class.getName());
+
     private static MediaPlayer wonGameSound;
     private static MediaPlayer correctShapeFoundSound;
     private static MediaPlayer wrongShapeFoundSound;
-    private static MediaPlayer startNewGameSound;
     private static Context context;
     private static MediaPlayer learningShapeVoice;
     private static MediaPlayer mainMenuSound;
@@ -60,15 +65,40 @@ public enum SoundResources implements Resources {
         }
     }
 
-    public static void playLearningShapePhaseTwoOnClickSound(AbstractShape shape) {
+    public static void playLearningShapePhaseTwoOnClickSound(String shapeName, Class<? extends Shape> shapeClass) {
         if (Game.getSpeakingEnabled()) {
-            int identifier = getLearningShapeDescriptionIdentifier(shape);
+            int identifier = 0;
+            try {
+                identifier = getLearningShapeSelfDescriptionIdentifier(shapeName);
+            } catch (IllegalArgumentException e) {
+                Log.warning(e.getMessage());
+            }
 
-            if (identifier != 0) {
-                learningShapeVoice = MediaPlayer.create(context, identifier);
-                learningShapeVoice.start();
+            learningShapeVoice = MediaPlayer.create(context, identifier);
+            AnimationDrawable talkingShapeAnimation = ImageResources.getTalkingShapeAnimation(shapeClass);
+            learningShapeVoice.start();
+
+            if (talkingShapeAnimation != null) {
+                talkingShapeAnimation.start();
+
+                learningShapeVoice.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                    @Override
+                    public void onCompletion(MediaPlayer mp) {
+                        talkingShapeAnimation.stop();
+                    }
+                });
             }
         }
+    }
+
+    private static int getLearningShapeSelfDescriptionIdentifier(String shapeName) throws IllegalArgumentException {
+        String fileName = String.format("im_%s", shapeName);
+        int identifier = context.getResources().getIdentifier(fileName, "raw", "com.ewareza.android");
+
+        if (identifier == 0)
+            throw new IllegalArgumentException(String.format("Sound resource with name: %s not found", fileName));
+
+        return identifier;
     }
 
     private static int getLearningShapeDescriptionIdentifier(AbstractShape shape) {
@@ -135,7 +165,16 @@ public enum SoundResources implements Resources {
 
     public static void playStartLearningPhaseTwoSound() {
         if (Game.getSpeakingEnabled()) {
+            startLearningPhaseTwoSound = resetSound(startLearningPhaseTwoSound, R.raw.learning_phase2_on_start);
             startLearningPhaseTwoSound.start();
+            ImageResources.getTalkingFrogAnimation().start();
+
+            startLearningPhaseTwoSound.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                @Override
+                public void onCompletion(MediaPlayer mp) {
+                    ImageResources.getTalkingFrogAnimation().stop();
+                }
+            });
         }
     }
 
@@ -168,7 +207,6 @@ public enum SoundResources implements Resources {
         wonGameSound = MediaPlayer.create(context, R.raw.won_game);
         correctShapeFoundSound = MediaPlayer.create(context, R.raw.correct_shape_clicked);
         wrongShapeFoundSound = MediaPlayer.create(context, R.raw.wrong_shape_clicked);
-        startNewGameSound = MediaPlayer.create(context, R.raw.start_game);
         mainMenuSound = MediaPlayer.create(context, R.raw.main_menu1);
         startLearningPhaseOneSound = MediaPlayer.create(context, R.raw.learning_phase1_on_start);
         startLearningPhaseTwoSound = MediaPlayer.create(context, R.raw.learning_phase2_on_start);
@@ -196,25 +234,61 @@ public enum SoundResources implements Resources {
     //@TODO cache sounds
     public void playShapeGameTitleSound(AbstractShape currentLookedForShape) {
         if (Game.getSpeakingEnabled()) {
-            wonGameSound = resetSoundIfIsPlaying(wonGameSound, R.raw.won_game);
             String fileName = String.format("find_%s", currentLookedForShape.getName());
             int identifier = context.getResources().getIdentifier(fileName, "raw", "com.ewareza.android");
-            shapeGameTitleSound = MediaPlayer.create(context, identifier);
-            shapeGameTitleSound.start();
+
+            if (identifier != 0) {
+                shapeGameTitleSound = MediaPlayer.create(context, identifier);
+                shapeGameTitleSound.start();
+                final AnimationDrawable talkingFrogAnimation = ImageResources.getTalkingFrogAnimation();
+
+                if (talkingFrogAnimation != null) {
+                    talkingFrogAnimation.start();
+
+                    shapeGameTitleSound.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                        @Override
+                        public void onCompletion(MediaPlayer mp) {
+                            talkingFrogAnimation.stop();
+                        }
+                    });
+                }
+            } else
+                Log.warning(String.format("Sound resource with name: %s not found", fileName));
         }
     }
 
-    public void playStartNewGame() {
-        if (Game.getSoundsEnabled())
-            startNewGameSound.start();
+    private void playGameTitleSound(String name, MediaPlayer mediaPlayer) {
+        if (Game.getSpeakingEnabled()) {
+            String fileName = String.format("find_%s", name);
+            int identifier = context.getResources().getIdentifier(fileName, "raw", "com.ewareza.android");
+
+            if (identifier != 0) {
+                mediaPlayer = MediaPlayer.create(context, identifier);
+                mediaPlayer.start();
+                ImageResources.getTalkingFrogAnimation().start();
+            } else
+                Log.warning(String.format("Sound resource with name: %s not found", fileName));
+        }
     }
 
-    public void playColorGameTitleSound(int color) {
+    public void playColorGameTitleSound(ColorFactory.Color color) {
         if (Game.getSpeakingEnabled()) {
-            String fileName = String.format("find_%s", ColorFactory.ColorWithIndex.asString(color));
+            String fileName = String.format("find_%s", color.getColorName());
             int identifier = context.getResources().getIdentifier(fileName, "raw", "com.ewareza.android");
-            colorGameTitleSound = MediaPlayer.create(context, identifier);
-            colorGameTitleSound.start();
+
+            if (identifier != 0) {
+                colorGameTitleSound = MediaPlayer.create(context, identifier);
+                colorGameTitleSound.start();
+                ImageResources.getTalkingFrogAnimation().start();
+
+                colorGameTitleSound.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                    @Override
+                    public void onCompletion(MediaPlayer mp) {
+                        ImageResources.getTalkingFrogAnimation().stop();
+                    }
+                });
+            } else
+                Log.warning(String.format("Sound resource with name: %s not found", fileName));
         }
     }
 

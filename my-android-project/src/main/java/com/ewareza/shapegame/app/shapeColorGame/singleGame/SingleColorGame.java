@@ -2,22 +2,22 @@ package com.ewareza.shapegame.app.shapeColorGame.singleGame;
 
 import com.ewareza.shapegame.app.Game;
 import com.ewareza.shapegame.domain.Splash;
-import com.ewareza.shapegame.domain.generator.SquareFactory;
+import com.ewareza.shapegame.domain.factory.ColorFactory;
+import com.ewareza.shapegame.domain.factory.SquareFactory;
 import com.ewareza.shapegame.domain.shape.AbstractShape;
 import com.ewareza.shapegame.domain.shape.Shape;
-import com.ewareza.shapegame.domain.shape.Square;
 
 public class SingleColorGame extends SingleGame {
-    private final int currentLookedForColor;
+    private final ColorFactory.Color currentLookedForColor;
 
-    public SingleColorGame(SingleGameState singleGameState, int color) {
+    public SingleColorGame(SingleGameState singleGameState, ColorFactory.Color color) {
         super(singleGameState);
         currentLookedForColor = color;
         singleGameState.setNumberOfLookedForObjects(countNumberOfLookedForObjects());
         setNumberOfLookedForShapesOnScreen(singleGameState.getNumberOfLookedForObjects());
     }
 
-    public int getCurrentLookedForColor() {
+    public ColorFactory.Color getCurrentLookedForColor() {
         return currentLookedForColor;
     }
 
@@ -43,7 +43,7 @@ public class SingleColorGame extends SingleGame {
 
     @Override
     public Shape getGameTitleShape() {
-        Square square = (Square) SquareFactory.getInstance().getGameTitleShape();
+        SquareFactory.Square square = (SquareFactory.Square) SquareFactory.getInstance().getGameTitleShape();
 
         return new Splash(square.getAssociatedRect(), currentLookedForColor, Game.getDrawer());
     }

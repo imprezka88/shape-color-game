@@ -2,7 +2,6 @@ package com.ewareza.shapegame.app.shapeColorGame.singleGame;
 
 import android.graphics.Canvas;
 import android.graphics.Point;
-import com.ewareza.shapegame.app.utils.GameUtils;
 import com.ewareza.shapegame.domain.shape.AbstractShape;
 import com.ewareza.shapegame.domain.shape.Shape;
 import com.ewareza.shapegame.resources.SoundResources;
@@ -76,7 +75,7 @@ public abstract class SingleGame {
 
     public void draw(Canvas canvas) {
         for (AbstractShape shape : getShapes()) {
-            shape.draw(canvas, GameUtils.getFilledPaint());
+            shape.draw(canvas);
         }
     }
 }

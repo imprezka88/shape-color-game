@@ -6,11 +6,11 @@ import android.graphics.Point;
 public interface LearningScreen {
     void drawShapes(Canvas canvas);
 
-    void drawFrog(Canvas canvas);
-
     void update();
 
     void setToInitialState();
 
     void onScreenTouched(Point point);
+
+    void clearScreen(Canvas canvas);
 }

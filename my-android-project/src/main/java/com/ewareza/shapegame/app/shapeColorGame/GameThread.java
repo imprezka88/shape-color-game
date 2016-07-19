@@ -3,7 +3,8 @@ package com.ewareza.shapegame.app.shapeColorGame;
 import android.graphics.Point;
 import com.ewareza.shapegame.app.GameEngine;
 
-import java.util.concurrent.*;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.CyclicBarrier;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 public class GameThread extends Thread {
@@ -33,49 +34,12 @@ public class GameThread extends Thread {
     public void run() {
         while(isRunning.get()) {
             if(gameStarting.get()) {
-                startNewGame();
+
                 gameStartCountDownLatch.countDown();
             }
-            else if(screenTouched.get()){
-                screenTouched.set(false);
-                gameEngine.onScreenTouched(currentTouchedPoint);
-
-                if (allShapesFound()) {
-                    ShapeColorGame.setGameOver(true);
-                    gameEngine.playWonGame();
-                    tryToAwaitWithTimeoutOnBarrier(gameOverCyclicBarrier, 3, TimeUnit.SECONDS);
-                    ShapeColorGame.setGameOver(false);
-                    gameEngine.generateNewGame();
-                }
-            }
         }
     }
 
-    private boolean allShapesFound() {
-        return gameEngine.getNumberOfLookedForShapesOnScreen() == 0;
-    }
-
-    private void tryToAwaitWithTimeoutOnBarrier(CyclicBarrier cyclicBarrier, int timeout, TimeUnit timeUnit) {
-        try {
-            cyclicBarrier.await(timeout, timeUnit);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (BrokenBarrierException e) {
-            //@TODO
-        } catch (TimeoutException e) {
-            //@TODO
-        }
-        finally {
-            gameOverCyclicBarrier.reset();
-        }
-    }
-
-    private void startNewGame() {
-        ShapeColorGame.setToFirstGame();
-        gameEngine.generateNewGame();
-        gameEngine.playStartNewGame();
-        gameStarting.set(false);
-    }
 
     public synchronized void onScreenTouched(Point point) {
         screenTouched.set(true);

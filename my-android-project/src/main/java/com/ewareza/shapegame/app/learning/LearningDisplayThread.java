@@ -3,11 +3,9 @@ package com.ewareza.shapegame.app.learning;
 import android.graphics.Canvas;
 import android.view.SurfaceHolder;
 import com.ewareza.shapegame.app.DisplayThread;
-import com.ewareza.shapegame.app.utils.GameUtils;
-import com.ewareza.shapegame.resources.DimenRes;
 
 public class LearningDisplayThread extends DisplayThread {
-    public static final int TIME_BETWEEN_FRAMES = 100;
+    public static final int TIME_BETWEEN_FRAMES = 0;
     private LearningScreen learningScreen;
 
     public LearningDisplayThread(SurfaceHolder holder) {
@@ -24,7 +22,6 @@ public class LearningDisplayThread extends DisplayThread {
     @Override
     protected void drawUpdatedView(Canvas canvas) {
         clearScreen(canvas);
-//        drawFrog(canvas);
         drawShape(canvas);
     }
 
@@ -32,12 +29,8 @@ public class LearningDisplayThread extends DisplayThread {
         learningScreen.drawShapes(canvas);
     }
 
-    private void drawFrog(Canvas canvas) {
-        learningScreen.drawFrog(canvas);
-    }
-
     private void clearScreen(Canvas canvas) {
-        canvas.drawRect(0, 0, DimenRes.getScreenWidth(), DimenRes.getScreenHeight(), GameUtils.getGameBackgroundPaint());
+        learningScreen.clearScreen(canvas);
     }
 
     @Override

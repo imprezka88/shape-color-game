@@ -5,7 +5,6 @@ import android.graphics.Point;
 import com.ewareza.shapegame.app.shapeColorGame.ShapeColorGame;
 import com.ewareza.shapegame.app.shapeColorGame.singleGame.SingleGame;
 import com.ewareza.shapegame.app.shapeColorGame.singleGame.generator.SingleGameFactory;
-import com.ewareza.shapegame.app.utils.GameUtils;
 import com.ewareza.shapegame.resources.SoundResources;
 
 import java.util.logging.Logger;
@@ -54,11 +53,7 @@ public class GameEngine {
         soundResources.playWonGame();
     }
 
-    public void playStartNewGame() {
-        soundResources.playStartNewGame();
-    }
-
     public void drawGameTitleShape(Canvas canvas) {
-        currentSingleGame.getGameTitleShape().draw(canvas, GameUtils.getFilledPaint());
+        currentSingleGame.getGameTitleShape().draw(canvas);
     }
 }

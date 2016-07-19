@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/learningScreen"
+        android:background="@drawable/learning_background">
+
+        <ImageView
+                android:layout_width="@dimen/learning_frog_width"
+                android:layout_height="@dimen/learning_frog_height"
+                android:id="@+id/learningFrog"
+                android:background="@drawable/talking_frog_animation"
+                android:layout_marginLeft="@dimen/learning_frog_margin_left"
+                android:layout_gravity="bottom"
+                android:layout_marginBottom="@dimen/learning_frog_margin_bottom"/>
+
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/startGameButtons"
+                android:layout_gravity="bottom|right"
+                android:layout_marginRight="@dimen/learning_start_game_buttons_margin_right"
+                android:layout_marginBottom="@dimen/learning_start_game_buttons_margin_bottom">
+
+                <ImageButton
+                        android:layout_width="@dimen/learning_start_game_button_width"
+                        android:layout_height="@dimen/learning_start_game_button_height"
+                        android:id="@+id/startShapeGameButton"
+                        android:layout_gravity="bottom"
+                        android:background="@drawable/new_game_border"
+                        android:adjustViewBounds="false"
+                        android:clickable="true"
+                        android:src="@drawable/shape_game_button_image"
+                        android:scaleType="fitXY"
+                        android:padding="5dp"/>
+
+                <ImageButton
+                        android:layout_width="@dimen/learning_start_game_button_width"
+                        android:layout_height="@dimen/learning_start_game_button_height"
+                        android:id="@+id/startColorGameButton"
+                        android:focusable="true"
+                        android:layout_marginLeft="@dimen/learning_start_game_button_left_margin_left"
+                        android:background="@drawable/new_game_border"
+                        android:clickable="true"
+                        android:src="@drawable/color_game_button_imgage"
+                        android:scaleType="fitXY"
+                        android:padding="5dp"/>
+        </LinearLayout>
+
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left|top"
+                android:layout_marginLeft="@dimen/learning_cloud_left_top_margin_left"
+                android:layout_marginTop="@dimen/learning_cloud_left_top_margin_top"
+                android:background="@null"
+                >
+
+                <ImageView
+                        android:layout_width="@dimen/learning_cloud_left_top_shape_left_width"
+                        android:layout_height="@dimen/learning_cloud_left_top_shape_left_height"
+                        android:id="@+id/circle"
+                        android:background="@drawable/new_game_border"
+                        android:visibility="visible"
+                        />
+
+                <ImageView
+                        android:layout_width="@dimen/learning_cloud_left_top_shape_right_width"
+                        android:layout_height="@dimen/learning_cloud_left_top_shape_right_height"
+                        android:id="@+id/oval"
+                        android:layout_marginLeft="@dimen/learning_cloud_left_top_shape_right_margin_left"
+                        android:background="@drawable/new_game_border"
+                        android:visibility="visible"
+                        />
+        </LinearLayout>
+
+        <ImageView
+                android:layout_width="@dimen/learning_cloud_left_bottom_width"
+                android:layout_height="@dimen/learning_cloud_left_bottom_height"
+                android:id="@+id/rectangle"
+                android:layout_marginLeft="@dimen/learning_cloud_left_bottom_margin_left"
+                android:layout_marginTop="@dimen/learning_cloud_left_bottom_margin_top"
+                android:background="@drawable/new_game_border"
+                android:visibility="visible"/>
+
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/learning_cloud_right_top_margin_left"
+                android:layout_marginTop="@dimen/learning_cloud_right_top_margin_top"
+                android:background="@null"
+                >
+
+                <ImageView
+                        android:layout_width="@dimen/learning_cloud_right_top_shape_left_width"
+                        android:layout_height="@dimen/learning_cloud_right_top_shape_left_height"
+                        android:id="@+id/square"
+                        android:background="@drawable/new_game_border"
+                        android:visibility="visible"/>
+
+                <ImageView
+                        android:layout_width="@dimen/learning_cloud_right_top_shape_right_width"
+                        android:layout_height="@dimen/learning_cloud_right_top_shape_right_height"
+                        android:id="@+id/triangle"
+                        android:layout_marginLeft="@dimen/learning_cloud_right_top_shape_right_margin_left"
+                        android:background="@drawable/new_game_border"
+                        android:visibility="visible"/>
+        </LinearLayout>
+
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/learning_cloud_right_bottom_margin_left"
+                android:layout_marginTop="@dimen/learning_cloud_right_bottom_margin_top"
+                android:background="@null"
+                >
+
+                <ImageView
+                        android:layout_width="@dimen/learning_cloud_right_bottom_shape_left_width"
+                        android:layout_height="@dimen/learning_cloud_right_bottom_shape_left_height"
+                        android:id="@+id/star"
+                        android:background="@drawable/new_game_border"
+                        android:visibility="visible"/>
+
+                <ImageView
+                        android:layout_width="@dimen/learning_cloud_right_bottom_shape_right_width"
+                        android:layout_height="@dimen/learning_cloud_right_bottom_shape_right_height"
+                        android:id="@+id/heart"
+                        android:layout_marginLeft="@dimen/learning_cloud_right_bottom_shape_right_margin_left"
+                        android:background="@drawable/new_game_border"
+                        android:visibility="visible"/>
+        </LinearLayout>
+</FrameLayout>

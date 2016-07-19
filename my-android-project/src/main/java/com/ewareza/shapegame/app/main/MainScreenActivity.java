@@ -43,6 +43,8 @@ public class MainScreenActivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        float density = getResources().getDisplayMetrics().density;
+
         setContentView(R.layout.main_screen);
         setVolumeControlStream(AudioManager.STREAM_MUSIC);
 
@@ -51,6 +53,9 @@ public class MainScreenActivity extends Activity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainScreenActivity.this, LearningGameActivity.class);
+                Bundle b = new Bundle();
+                b.putString(GameUtils.GAME_TYPE, GameUtils.PHASE_ONE);
+                intent.putExtras(b);
                 startActivity(intent);
             }
         });

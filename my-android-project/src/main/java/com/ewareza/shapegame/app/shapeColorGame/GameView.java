@@ -7,21 +7,18 @@ import android.view.SurfaceView;
 import com.ewareza.shapegame.app.utils.GameUtils;
 
 import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.CyclicBarrier;
 import java.util.logging.Logger;
 
 public class GameView extends SurfaceView implements SurfaceHolder.Callback {
     private final static Logger logger = Logger.getLogger(GameView.class.getName());
     private CountDownLatch gameStartCountDownLatch;
-    private CyclicBarrier gameOverCyclicBarrier;
     private ShapeGameDisplayThread displayThread;
     private SurfaceHolder holder;
 
-    public GameView(Context context, CountDownLatch gameStartCountDownLatch, CyclicBarrier gameOverCyclicBarrier) {
+    public GameView(Context context, CountDownLatch gameStartCountDownLatch) {
         super(context);
         this.gameStartCountDownLatch = gameStartCountDownLatch;
-        this.gameOverCyclicBarrier = gameOverCyclicBarrier;
-        init(gameOverCyclicBarrier);
+        init();
     }
 
     public GameView(Context context, AttributeSet attrs) {
@@ -32,7 +29,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         super(context, attrs, defStyle);
     }
 
-    private void init(CyclicBarrier gameOverCyclicBarrier) {
+    private void init() {
         holder = getHolder();
         holder.addCallback(this);
 
