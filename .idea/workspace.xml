@@ -16,16 +16,16 @@
     <shared>
       <config>
         <devices>
+          <device id="7in WSVGA (Tablet)" />
+          <device id="3.7 FWVGA slider" />
+          <device id="10.1in WXGA (Tablet)" />
+          <device id="Nexus 9" />
+          <device id="5.4in FWVGA" />
+          <device id="5.1in WVGA" />
           <device id="4.7in WXGA" />
+          <device id="4.65in 720p (Galaxy Nexus)" />
           <device id="Sony Xperia T 1" />
-          <device id="Nexus 5" />
-          <device id="Nexus 4" />
-          <device id="Nexus 6" />
-          <device id="Nexus 10" />
-          <device id="Nexus One" />
-          <device id="Nexus S" />
           <device id="Galaxy Nexus" />
-          <device id="Nexus 7" />
         </devices>
         <pickBest>false</pickBest>
         <target>android-16</target>
@@ -35,13 +35,13 @@
       <layout url="file://$PROJECT_DIR$/my-android-project/res/layout/learning_screen.xml">
         <config>
           <state>Landscape</state>
-          <theme>@style/AppTheme</theme>
+          <theme>@android:style/Theme.NoTitleBar.Fullscreen</theme>
         </config>
       </layout>
       <layout url="file://$PROJECT_DIR$/my-android-project/res/layout/main_screen.xml">
         <config>
           <state>Landscape</state>
-          <theme>@style/AppTheme</theme>
+          <theme>@android:style/Theme.NoTitleBar.Fullscreen</theme>
         </config>
       </layout>
       <layout url="file://$PROJECT_DIR$/my-android-project/res/layout/shape_color_game_screen.xml">
@@ -63,205 +63,32 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="15c81e7a-73dc-490f-aab7-7ff06ca80599" name="Default" comment="dimen values for different screen sizes&#10;learning background clouds&#10;talking shapes">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/my-android-project/res/drawable/circle_extra_blue.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/my-android-project/res/drawable/circle_extra_green.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/my-android-project/res/drawable/circle_extra_orange.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/my-android-project/res/drawable/circle_extra_pink.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/my-android-project/res/drawable/circle_extra_red.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/my-android-project/res/drawable/circle_extra_violet.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/my-android-project/res/drawable/circle_extra_yellow.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/my-android-project/res/drawable/circle_mouth_closed_blue.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/my-android-project/res/drawable/circle_mouth_opened_blue.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/my-android-project/res/drawable/circle_orange.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/my-android-project/res/raw/find_orange.wav" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/my-android-project/res/drawable/game_over_airplane.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/my-android-project/res/drawable/game_over_balloon.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/my-android-project/res/drawable/game_over_balloon_toy.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/my-android-project/res/drawable/game_over_balloons.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/my-android-project/res/drawable/game_over_balloons2.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/my-android-project/res/drawable/game_over_balloons3.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/my-android-project/res/drawable/game_over_balloons4.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/my-android-project/res/drawable/game_over_bird.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/my-android-project/res/drawable/game_over_bird2.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/my-android-project/res/drawable/game_over_bird3.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/my-android-project/res/drawable/game_over_birthday_cake.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/my-android-project/res/drawable/game_over_butterflies.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/my-android-project/res/drawable/game_over_butterflies2.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/my-android-project/res/drawable/game_over_flowers.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/my-android-project/res/drawable/game_over_flowers2.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/my-android-project/res/drawable/game_over_hearts.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/my-android-project/res/drawable/game_over_hearts2.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/my-android-project/res/drawable/game_over_sun.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/my-android-project/res/drawable/heart_extra_blue.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/my-android-project/res/drawable/heart_extra_green.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/my-android-project/res/drawable/heart_extra_pink.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/my-android-project/res/drawable/heart_extra_red.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/my-android-project/res/drawable/heart_extra_violet.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/my-android-project/res/drawable/heart_extra_yellow.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/my-android-project/res/drawable/heart_orange.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/my-android-project/res/drawable-hdpi/ic_launcher.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/my-android-project/res/drawable-mdpi/ic_launcher.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/my-android-project/res/drawable-xhdpi/ic_launcher.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/my-android-project/res/raw/im_circle.wav" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/my-android-project/res/raw/im_heart.wav" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/my-android-project/res/raw/im_oval.wav" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/my-android-project/res/raw/im_rectangle.wav" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/my-android-project/res/raw/im_square.wav" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/my-android-project/res/raw/im_star.wav" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/my-android-project/res/raw/im_triangle.wav" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/my-android-project/res/drawable/learning_background.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/my-android-project/res/drawable/oval_extra_orange.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/my-android-project/res/drawable/oval_orange.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/my-android-project/res/drawable/rectangle_orange.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/my-android-project/res/drawable/splash_orange.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/my-android-project/res/drawable/square_blue_extra.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/my-android-project/res/drawable/square_extra_blue.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/my-android-project/res/drawable/square_extra_green.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/my-android-project/res/drawable/square_orange.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/my-android-project/res/drawable/star_orange.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/my-android-project/res/drawable/triangle_extra_blue.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/my-android-project/res/drawable/triangle_extra_green.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/my-android-project/res/raw/won_game_short.wav" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/my-android-project/src/main/java/com/ewareza/shapegame/domain/factory/CircleFactory.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/my-android-project/src/main/java/com/ewareza/shapegame/app/learning/ColorLearningGame.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/my-android-project/src/main/java/com/ewareza/shapegame/app/learning/LearningShapeColorGameFactory.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/my-android-project/src/main/java/com/ewareza/shapegame/app/learning/shapeArranger/LearningShapesArranger.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/my-android-project/src/main/java/com/ewareza/shapegame/app/learning/shapeArranger/OnCloudLearningShapesArranger.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/my-android-project/src/main/java/com/ewareza/shapegame/app/learning/shapeArranger/OneLineLearningShapeArranger.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/my-android-project/src/main/java/com/ewareza/shapegame/app/learning/ShapesLearningGame.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/my-android-project/src/main/java/com/ewareza/shapegame/app/learning/shapeArranger/TwoInRowLearningShapesArranger.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/my-android-project/res/values-hdpi/dimens.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/my-android-project/res/values-w1024dp/dimens.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/my-android-project/res/values-w1280dp/dimens.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/my-android-project/res/values-w533dp/dimens.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/my-android-project/res/values-w640dp/dimens.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/my-android-project/res/values-w730dp/dimens.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/my-android-project/res/values-w960dp/dimens.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/my-android-project/res/values-xhdpi/dimens_test.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/my-android-project/res/values-xxhdpi/dimens_test.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/my-android-project/res/values-xxxhdpi/dimens_test.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/my-android-project/res/layout/shape_color_game_screen.xml" />
-      <change type="DELETED" beforePath="C:\Users\Ewa\IdeaProjects\LilaGame\shape-game-parent\my-android-project\res\drawable\balloons.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ewa\IdeaProjects\LilaGame\shape-game-parent\my-android-project\res\drawable\toys.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ewa\IdeaProjects\LilaGame\shape-game-parent\my-android-project\res\layout\game_screen.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ewa\IdeaProjects\LilaGame\shape-game-parent\my-android-project\res\values-sw600dp\dimens.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ewa\IdeaProjects\LilaGame\shape-game-parent\my-android-project\res\values-sw720dp-land\dimens.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ewa\IdeaProjects\LilaGame\shape-game-parent\my-android-project\shape-game.iml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ewa\IdeaProjects\LilaGame\shape-game-parent\my-android-project\src\main\java\com\ewareza\shapegame\domain\shape\Circle.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ewa\IdeaProjects\LilaGame\shape-game-parent\my-android-project\src\main\java\com\ewareza\shapegame\domain\shape\Heart.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ewa\IdeaProjects\LilaGame\shape-game-parent\my-android-project\src\main\java\com\ewareza\shapegame\domain\shape\Oval.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ewa\IdeaProjects\LilaGame\shape-game-parent\my-android-project\src\main\java\com\ewareza\shapegame\domain\shape\Rectangle.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ewa\IdeaProjects\LilaGame\shape-game-parent\my-android-project\src\main\java\com\ewareza\shapegame\domain\shape\Square.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ewa\IdeaProjects\LilaGame\shape-game-parent\my-android-project\src\main\java\com\ewareza\shapegame\domain\shape\Star.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ewa\IdeaProjects\LilaGame\shape-game-parent\my-android-project\src\main\java\com\ewareza\shapegame\domain\shape\Triangle.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ewa\IdeaProjects\LilaGame\shape-game-parent\my-android-project\target\classes\com\ewareza\shapegame\domain\shape\Circle.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ewa\IdeaProjects\LilaGame\shape-game-parent\my-android-project\target\classes\com\ewareza\shapegame\domain\shape\Heart.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ewa\IdeaProjects\LilaGame\shape-game-parent\my-android-project\target\classes\com\ewareza\shapegame\domain\shape\Oval.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ewa\IdeaProjects\LilaGame\shape-game-parent\my-android-project\target\classes\com\ewareza\shapegame\domain\shape\Rectangle.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ewa\IdeaProjects\LilaGame\shape-game-parent\my-android-project\target\classes\com\ewareza\shapegame\domain\shape\Square.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ewa\IdeaProjects\LilaGame\shape-game-parent\my-android-project\target\classes\com\ewareza\shapegame\domain\shape\Triangle.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ewa\IdeaProjects\LilaGame\shape-game-parent\my-android-project\target\my-android-project.apk" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Ewa\IdeaProjects\LilaGame\shape-game-parent\shape-game-parent.iml" afterPath="" />
-      <change type="MOVED" beforePath="C:\Users\Ewa\IdeaProjects\LilaGame\shape-game-parent\my-android-project\res\drawable\game_over_animation.xml" afterPath="$PROJECT_DIR$/my-android-project/res/drawable/talking_frog_animation.xml" />
-      <change type="MOVED" beforePath="C:\Users\Ewa\IdeaProjects\LilaGame\shape-game-parent\my-android-project\res\layout\frog.xml" afterPath="$PROJECT_DIR$/my-android-project/res/layout/learning_screen.xml" />
-      <change type="MOVED" beforePath="C:\Users\Ewa\IdeaProjects\LilaGame\shape-game-parent\my-android-project\src\main\java\com\ewareza\shapegame\domain\generator\ColorFactory.java" afterPath="$PROJECT_DIR$/my-android-project/src/main/java/com/ewareza/shapegame/domain/factory/ColorFactory.java" />
-      <change type="MOVED" beforePath="C:\Users\Ewa\IdeaProjects\LilaGame\shape-game-parent\my-android-project\src\main\java\com\ewareza\shapegame\domain\generator\HeartFactory.java" afterPath="$PROJECT_DIR$/my-android-project/src/main/java/com/ewareza/shapegame/domain/factory/HeartFactory.java" />
-      <change type="MOVED" beforePath="C:\Users\Ewa\IdeaProjects\LilaGame\shape-game-parent\my-android-project\src\main\java\com\ewareza\shapegame\domain\generator\OvalFactory.java" afterPath="$PROJECT_DIR$/my-android-project/src/main/java/com/ewareza/shapegame/domain/factory/OvalFactory.java" />
-      <change type="MOVED" beforePath="C:\Users\Ewa\IdeaProjects\LilaGame\shape-game-parent\my-android-project\src\main\java\com\ewareza\shapegame\domain\generator\RectangleFactory.java" afterPath="$PROJECT_DIR$/my-android-project/src/main/java/com/ewareza/shapegame/domain/factory/RectangleFactory.java" />
-      <change type="MOVED" beforePath="C:\Users\Ewa\IdeaProjects\LilaGame\shape-game-parent\my-android-project\src\main\java\com\ewareza\shapegame\domain\generator\ShapeFactory.java" afterPath="$PROJECT_DIR$/my-android-project/src/main/java/com/ewareza/shapegame/domain/factory/ShapeFactory.java" />
-      <change type="MOVED" beforePath="C:\Users\Ewa\IdeaProjects\LilaGame\shape-game-parent\my-android-project\src\main\java\com\ewareza\shapegame\domain\generator\SquareFactory.java" afterPath="$PROJECT_DIR$/my-android-project/src/main/java/com/ewareza/shapegame/domain/factory/SquareFactory.java" />
-      <change type="MOVED" beforePath="C:\Users\Ewa\IdeaProjects\LilaGame\shape-game-parent\my-android-project\src\main\java\com\ewareza\shapegame\domain\generator\StarFactory.java" afterPath="$PROJECT_DIR$/my-android-project/src/main/java/com/ewareza/shapegame/domain/factory/StarFactory.java" />
-      <change type="MOVED" beforePath="C:\Users\Ewa\IdeaProjects\LilaGame\shape-game-parent\my-android-project\src\main\java\com\ewareza\shapegame\domain\generator\TriangleFactory.java" afterPath="$PROJECT_DIR$/my-android-project/src/main/java/com/ewareza/shapegame/domain/factory/TriangleFactory.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/my-android-project/target/classes/com/ewareza/shapegame/resources/DimenRes.class" afterPath="$PROJECT_DIR$/my-android-project/target/classes/com/ewareza/shapegame/resources/DimenRes.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/my-android-project/target/classes/com/ewareza/shapegame/app/GameEngine.class" afterPath="$PROJECT_DIR$/my-android-project/target/classes/com/ewareza/shapegame/app/GameEngine.class" />
+      <change type="DELETED" beforePath="C:\Users\Ewa\IdeaProjects\LilaGame\shape-game-parent\my-android-project\res\values-hdpi\dimens.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Ewa\IdeaProjects\LilaGame\shape-game-parent\my-android-project\res\values-v11\styles.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Ewa\IdeaProjects\LilaGame\shape-game-parent\my-android-project\res\values-v14\styles.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Ewa\IdeaProjects\LilaGame\shape-game-parent\my-android-project\res\values-w533dp\dimens.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Ewa\IdeaProjects\LilaGame\shape-game-parent\my-android-project\res\values-w640dp\dimens.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Ewa\IdeaProjects\LilaGame\shape-game-parent\my-android-project\res\values-xhdpi\dimens_test.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Ewa\IdeaProjects\LilaGame\shape-game-parent\my-android-project\res\values-xxhdpi\dimens_test.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Ewa\IdeaProjects\LilaGame\shape-game-parent\my-android-project\res\values-xxxhdpi\dimens_test.xml" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/my-android-project/target/classes/com/ewareza/shapegame/app/utils/GameUtils.class" afterPath="$PROJECT_DIR$/my-android-project/target/classes/com/ewareza/shapegame/app/utils/GameUtils.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/my-android-project/target/classes/com/ewareza/shapegame/app/shapeColorGame/GameView.class" afterPath="$PROJECT_DIR$/my-android-project/target/classes/com/ewareza/shapegame/app/shapeColorGame/GameView.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/my-android-project/target/classes/com/ewareza/shapegame/resources/ImageResources.class" afterPath="$PROJECT_DIR$/my-android-project/target/classes/com/ewareza/shapegame/resources/ImageResources.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/my-android-project/target/classes/com/ewareza/shapegame/app/main/MainScreenActivity$1.class" afterPath="$PROJECT_DIR$/my-android-project/target/classes/com/ewareza/shapegame/app/main/MainScreenActivity$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/my-android-project/target/classes/com/ewareza/shapegame/app/main/MainScreenActivity$2.class" afterPath="$PROJECT_DIR$/my-android-project/target/classes/com/ewareza/shapegame/app/main/MainScreenActivity$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/my-android-project/target/classes/com/ewareza/shapegame/app/main/MainScreenActivity$3.class" afterPath="$PROJECT_DIR$/my-android-project/target/classes/com/ewareza/shapegame/app/main/MainScreenActivity$3.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/my-android-project/target/classes/com/ewareza/shapegame/app/main/MainScreenActivity$4.class" afterPath="$PROJECT_DIR$/my-android-project/target/classes/com/ewareza/shapegame/app/main/MainScreenActivity$4.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/my-android-project/target/classes/com/ewareza/shapegame/app/main/MainScreenActivity$5.class" afterPath="$PROJECT_DIR$/my-android-project/target/classes/com/ewareza/shapegame/app/main/MainScreenActivity$5.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/my-android-project/target/classes/com/ewareza/shapegame/app/main/MainScreenActivity.class" afterPath="$PROJECT_DIR$/my-android-project/target/classes/com/ewareza/shapegame/app/main/MainScreenActivity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/my-android-project/target/classes/com/ewareza/android/R$dimen.class" afterPath="$PROJECT_DIR$/my-android-project/target/classes/com/ewareza/android/R$dimen.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/my-android-project/target/classes/com/ewareza/android/R$drawable.class" afterPath="$PROJECT_DIR$/my-android-project/target/classes/com/ewareza/android/R$drawable.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/my-android-project/target/classes/com/ewareza/android/R$id.class" afterPath="$PROJECT_DIR$/my-android-project/target/classes/com/ewareza/android/R$id.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/my-android-project/target/classes/com/ewareza/android/R$layout.class" afterPath="$PROJECT_DIR$/my-android-project/target/classes/com/ewareza/android/R$layout.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/my-android-project/target/classes/com/ewareza/android/R$raw.class" afterPath="$PROJECT_DIR$/my-android-project/target/classes/com/ewareza/android/R$raw.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/my-android-project/target/classes/com/ewareza/android/R$string.class" afterPath="$PROJECT_DIR$/my-android-project/target/classes/com/ewareza/android/R$string.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/my-android-project/target/classes/com/ewareza/android/R$style.class" afterPath="$PROJECT_DIR$/my-android-project/target/classes/com/ewareza/android/R$style.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/my-android-project/target/classes/com/ewareza/shapegame/domain/shape/Shape.class" afterPath="$PROJECT_DIR$/my-android-project/target/classes/com/ewareza/shapegame/domain/shape/Shape.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/my-android-project/target/classes/com/ewareza/shapegame/app/shapeColorGame/ShapeGameActivity.class" afterPath="$PROJECT_DIR$/my-android-project/target/classes/com/ewareza/shapegame/app/shapeColorGame/ShapeGameActivity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/my-android-project/target/classes/com/ewareza/shapegame/app/shapeColorGame/ShapeGameDisplayThread.class" afterPath="$PROJECT_DIR$/my-android-project/target/classes/com/ewareza/shapegame/app/shapeColorGame/ShapeGameDisplayThread.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/my-android-project/target/classes/com/ewareza/shapegame/app/shapeColorGame/singleGame/SingleColorGame.class" afterPath="$PROJECT_DIR$/my-android-project/target/classes/com/ewareza/shapegame/app/shapeColorGame/singleGame/SingleColorGame.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/my-android-project/target/classes/com/ewareza/shapegame/app/shapeColorGame/singleGame/SingleGame.class" afterPath="$PROJECT_DIR$/my-android-project/target/classes/com/ewareza/shapegame/app/shapeColorGame/singleGame/SingleGame.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/my-android-project/target/classes/com/ewareza/shapegame/app/shapeColorGame/singleGame/generator/SingleGameFactory.class" afterPath="$PROJECT_DIR$/my-android-project/target/classes/com/ewareza/shapegame/app/shapeColorGame/singleGame/generator/SingleGameFactory.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/my-android-project/target/classes/com/ewareza/shapegame/app/shapeColorGame/singleGame/SingleShapeGame.class" afterPath="$PROJECT_DIR$/my-android-project/target/classes/com/ewareza/shapegame/app/shapeColorGame/singleGame/SingleShapeGame.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/my-android-project/target/classes/com/ewareza/shapegame/resources/SoundResources$1.class" afterPath="$PROJECT_DIR$/my-android-project/target/classes/com/ewareza/shapegame/resources/SoundResources$1.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/my-android-project/target/classes/com/ewareza/shapegame/resources/SoundResources.class" afterPath="$PROJECT_DIR$/my-android-project/target/classes/com/ewareza/shapegame/resources/SoundResources.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/my-android-project/res/drawable/circle_blue.png" afterPath="$PROJECT_DIR$/my-android-project/res/drawable/circle_blue.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/my-android-project/res/drawable/circle_pink.png" afterPath="$PROJECT_DIR$/my-android-project/res/drawable/circle_pink.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/my-android-project/res/drawable/circle_white.png" afterPath="$PROJECT_DIR$/my-android-project/res/drawable/circle_white.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/my-android-project/res/drawable/circle_yellow.png" afterPath="$PROJECT_DIR$/my-android-project/res/drawable/circle_yellow.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/my-android-project/res/drawable/frog_wave_up_mouth_closed.png" afterPath="$PROJECT_DIR$/my-android-project/res/drawable/frog_wave_up_mouth_closed.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/my-android-project/res/drawable/frog_wave_up_mouth_opened.png" afterPath="$PROJECT_DIR$/my-android-project/res/drawable/frog_wave_up_mouth_opened.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/my-android-project/res/drawable/heart_blue.png" afterPath="$PROJECT_DIR$/my-android-project/res/drawable/heart_blue.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/my-android-project/res/drawable/heart_green.png" afterPath="$PROJECT_DIR$/my-android-project/res/drawable/heart_green.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/my-android-project/res/drawable/heart_red.png" afterPath="$PROJECT_DIR$/my-android-project/res/drawable/heart_red.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/my-android-project/res/drawable/heart_white.png" afterPath="$PROJECT_DIR$/my-android-project/res/drawable/heart_white.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/my-android-project/res/drawable/learning_button_image.png" afterPath="$PROJECT_DIR$/my-android-project/res/drawable/learning_button_image.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/my-android-project/res/drawable/main_screen_background.jpg" afterPath="$PROJECT_DIR$/my-android-project/res/drawable/main_screen_background.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/my-android-project/target/my-android-project.unaligned.apk" afterPath="$PROJECT_DIR$/my-android-project/target/my-android-project.unaligned.apk" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/my-android-project/res/drawable/oval_green.png" afterPath="$PROJECT_DIR$/my-android-project/res/drawable/oval_green.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/my-android-project/res/drawable/oval_red.png" afterPath="$PROJECT_DIR$/my-android-project/res/drawable/oval_red.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/my-android-project/res/drawable/oval_white.png" afterPath="$PROJECT_DIR$/my-android-project/res/drawable/oval_white.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/my-android-project/res/drawable/rectangle_red.png" afterPath="$PROJECT_DIR$/my-android-project/res/drawable/rectangle_red.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/my-android-project/res/drawable/rectangle_white.png" afterPath="$PROJECT_DIR$/my-android-project/res/drawable/rectangle_white.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/my-android-project/res/drawable/shape_game_button_image.png" afterPath="$PROJECT_DIR$/my-android-project/res/drawable/shape_game_button_image.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/my-android-project/res/drawable/sky.png" afterPath="$PROJECT_DIR$/my-android-project/res/drawable/sky.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/my-android-project/res/drawable/splash_yellow.png" afterPath="$PROJECT_DIR$/my-android-project/res/drawable/splash_yellow.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/my-android-project/res/drawable/square_blue.png" afterPath="$PROJECT_DIR$/my-android-project/res/drawable/square_blue.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/my-android-project/res/drawable/square_violet.png" afterPath="$PROJECT_DIR$/my-android-project/res/drawable/square_violet.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/my-android-project/res/drawable/square_white.png" afterPath="$PROJECT_DIR$/my-android-project/res/drawable/square_white.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/my-android-project/res/drawable/star_white.png" afterPath="$PROJECT_DIR$/my-android-project/res/drawable/star_white.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/my-android-project/res/drawable/triangle_orange.png" afterPath="$PROJECT_DIR$/my-android-project/res/drawable/triangle_orange.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/my-android-project/res/drawable/triangle_white.png" afterPath="$PROJECT_DIR$/my-android-project/res/drawable/triangle_white.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/my-android-project/src/main/java/com/ewareza/shapegame/domain/shape/AbstractShape.java" afterPath="$PROJECT_DIR$/my-android-project/src/main/java/com/ewareza/shapegame/domain/shape/AbstractShape.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/my-android-project/src/main/java/com/ewareza/shapegame/drawer/AndroidCanvasDrawer.java" afterPath="$PROJECT_DIR$/my-android-project/src/main/java/com/ewareza/shapegame/drawer/AndroidCanvasDrawer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/my-android-project/AndroidManifest.xml" afterPath="$PROJECT_DIR$/my-android-project/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/my-android-project/src/main/java/com/ewareza/shapegame/resources/DimenRes.java" afterPath="$PROJECT_DIR$/my-android-project/src/main/java/com/ewareza/shapegame/resources/DimenRes.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/my-android-project/src/main/java/com/ewareza/shapegame/drawer/Drawer.java" afterPath="$PROJECT_DIR$/my-android-project/src/main/java/com/ewareza/shapegame/drawer/Drawer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/my-android-project/src/main/java/com/ewareza/shapegame/app/learning/FirstPhaseLearningScreen.java" afterPath="$PROJECT_DIR$/my-android-project/src/main/java/com/ewareza/shapegame/app/learning/FirstPhaseLearningScreen.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/my-android-project/src/main/java/com/ewareza/shapegame/app/GameEngine.java" afterPath="$PROJECT_DIR$/my-android-project/src/main/java/com/ewareza/shapegame/app/GameEngine.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/my-android-project/src/main/java/com/ewareza/shapegame/app/shapeColorGame/GameOverImageFactory.java" afterPath="$PROJECT_DIR$/my-android-project/src/main/java/com/ewareza/shapegame/app/shapeColorGame/GameOverImageFactory.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/my-android-project/src/main/java/com/ewareza/shapegame/app/GameSettings.java" afterPath="$PROJECT_DIR$/my-android-project/src/main/java/com/ewareza/shapegame/app/GameSettings.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/my-android-project/src/main/java/com/ewareza/shapegame/app/shapeColorGame/GameThread.java" afterPath="$PROJECT_DIR$/my-android-project/src/main/java/com/ewareza/shapegame/app/shapeColorGame/GameThread.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/my-android-project/src/main/java/com/ewareza/shapegame/app/utils/GameUtils.java" afterPath="$PROJECT_DIR$/my-android-project/src/main/java/com/ewareza/shapegame/app/utils/GameUtils.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/my-android-project/src/main/java/com/ewareza/shapegame/app/shapeColorGame/GameView.java" afterPath="$PROJECT_DIR$/my-android-project/src/main/java/com/ewareza/shapegame/app/shapeColorGame/GameView.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/my-android-project/src/main/java/com/ewareza/shapegame/resources/ImageResources.java" afterPath="$PROJECT_DIR$/my-android-project/src/main/java/com/ewareza/shapegame/resources/ImageResources.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/my-android-project/src/main/java/com/ewareza/shapegame/app/learning/LearningDisplayThread.java" afterPath="$PROJECT_DIR$/my-android-project/src/main/java/com/ewareza/shapegame/app/learning/LearningDisplayThread.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/my-android-project/src/main/java/com/ewareza/shapegame/app/learning/LearningGame.java" afterPath="$PROJECT_DIR$/my-android-project/src/main/java/com/ewareza/shapegame/app/learning/LearningGame.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/my-android-project/src/main/java/com/ewareza/shapegame/app/learning/LearningGameActivity.java" afterPath="$PROJECT_DIR$/my-android-project/src/main/java/com/ewareza/shapegame/app/learning/LearningGameActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/my-android-project/src/main/java/com/ewareza/shapegame/app/learning/LearningScreen.java" afterPath="$PROJECT_DIR$/my-android-project/src/main/java/com/ewareza/shapegame/app/learning/LearningScreen.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/my-android-project/src/main/java/com/ewareza/shapegame/app/learning/LearningShapesGenerator.java" afterPath="$PROJECT_DIR$/my-android-project/src/main/java/com/ewareza/shapegame/app/learning/LearningShapesGenerator.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/my-android-project/src/main/java/com/ewareza/shapegame/app/learning/LearningView.java" afterPath="$PROJECT_DIR$/my-android-project/src/main/java/com/ewareza/shapegame/app/learning/LearningView.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/my-android-project/src/main/java/com/ewareza/shapegame/app/main/MainScreenActivity.java" afterPath="$PROJECT_DIR$/my-android-project/src/main/java/com/ewareza/shapegame/app/main/MainScreenActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/my-android-project/src/main/java/com/ewareza/shapegame/app/shapeColorGame/singleGame/generator/RandomShapesFactory.java" afterPath="$PROJECT_DIR$/my-android-project/src/main/java/com/ewareza/shapegame/app/shapeColorGame/singleGame/generator/RandomShapesFactory.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/my-android-project/src/main/java/com/ewareza/shapegame/app/learning/SecondPhaseLearningScreen.java" afterPath="$PROJECT_DIR$/my-android-project/src/main/java/com/ewareza/shapegame/app/learning/SecondPhaseLearningScreen.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/my-android-project/src/main/java/com/ewareza/shapegame/domain/shape/Shape.java" afterPath="$PROJECT_DIR$/my-android-project/src/main/java/com/ewareza/shapegame/domain/shape/Shape.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/my-android-project/src/main/java/com/ewareza/shapegame/app/shapeColorGame/ShapeGameActivity.java" afterPath="$PROJECT_DIR$/my-android-project/src/main/java/com/ewareza/shapegame/app/shapeColorGame/ShapeGameActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/my-android-project/src/main/java/com/ewareza/shapegame/app/shapeColorGame/ShapeGameDisplayThread.java" afterPath="$PROJECT_DIR$/my-android-project/src/main/java/com/ewareza/shapegame/app/shapeColorGame/ShapeGameDisplayThread.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/my-android-project/src/main/java/com/ewareza/shapegame/app/shapeColorGame/singleGame/SingleColorGame.java" afterPath="$PROJECT_DIR$/my-android-project/src/main/java/com/ewareza/shapegame/app/shapeColorGame/singleGame/SingleColorGame.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/my-android-project/src/main/java/com/ewareza/shapegame/app/shapeColorGame/singleGame/SingleGame.java" afterPath="$PROJECT_DIR$/my-android-project/src/main/java/com/ewareza/shapegame/app/shapeColorGame/singleGame/SingleGame.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/my-android-project/src/main/java/com/ewareza/shapegame/app/shapeColorGame/singleGame/SingleShapeGame.java" afterPath="$PROJECT_DIR$/my-android-project/src/main/java/com/ewareza/shapegame/app/shapeColorGame/singleGame/SingleShapeGame.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/my-android-project/src/main/java/com/ewareza/shapegame/resources/SoundResources.java" afterPath="$PROJECT_DIR$/my-android-project/src/main/java/com/ewareza/shapegame/resources/SoundResources.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/my-android-project/src/main/java/com/ewareza/shapegame/domain/Splash.java" afterPath="$PROJECT_DIR$/my-android-project/src/main/java/com/ewareza/shapegame/domain/Splash.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/my-android-project/res/values/dimens.xml" afterPath="$PROJECT_DIR$/my-android-project/res/values/dimens.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/my-android-project/res/values-w1024dp/dimens.xml" afterPath="$PROJECT_DIR$/my-android-project/res/values-w1024dp/dimens.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/my-android-project/res/values-w1280dp/dimens.xml" afterPath="$PROJECT_DIR$/my-android-project/res/values-w1280dp/dimens.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/my-android-project/res/values-w730dp/dimens.xml" afterPath="$PROJECT_DIR$/my-android-project/res/values-w730dp/dimens.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/my-android-project/res/values-w960dp/dimens.xml" afterPath="$PROJECT_DIR$/my-android-project/res/values-w960dp/dimens.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/my-android-project/res/layout/learning_screen.xml" afterPath="$PROJECT_DIR$/my-android-project/res/layout/learning_screen.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/my-android-project/res/layout/main_screen.xml" afterPath="$PROJECT_DIR$/my-android-project/res/layout/main_screen.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="my-android-project-parent.iws" />
@@ -288,20 +115,50 @@
         <state>
           <leaf>
             <file leaf-file-name="dimens.xml" pinned="false" current-in-tab="false">
-              <entry file="file://$PROJECT_DIR$/my-android-project/res/values-w640dp/dimens.xml">
+              <entry file="file://$PROJECT_DIR$/my-android-project/res/values/dimens.xml">
                 <provider selected="true" editor-type-id="text-editor">
                   <state vertical-scroll-proportion="0.0">
-                    <caret line="67" column="68" selection-start-line="0" selection-start-column="0" selection-end-line="95" selection-end-column="12" />
+                    <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
                     <folding />
                   </state>
                 </provider>
               </entry>
             </file>
             <file leaf-file-name="dimens.xml" pinned="false" current-in-tab="true">
-              <entry file="file://$PROJECT_DIR$/my-android-project/res/values/dimens.xml">
+              <entry file="file://$PROJECT_DIR$/my-android-project/res/values-w1280dp/dimens.xml">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state vertical-scroll-proportion="0.8435583">
-                    <caret line="95" column="12" selection-start-line="95" selection-start-column="12" selection-end-line="95" selection-end-column="12" />
+                  <state vertical-scroll-proportion="0.0">
+                    <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+                    <folding />
+                  </state>
+                </provider>
+              </entry>
+            </file>
+            <file leaf-file-name="dimens.xml" pinned="false" current-in-tab="false">
+              <entry file="file://$PROJECT_DIR$/my-android-project/res/values-w1024dp/dimens.xml">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state vertical-scroll-proportion="0.0">
+                    <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+                    <folding />
+                  </state>
+                </provider>
+              </entry>
+            </file>
+            <file leaf-file-name="dimens.xml" pinned="false" current-in-tab="false">
+              <entry file="file://$PROJECT_DIR$/my-android-project/res/values-w730dp/dimens.xml">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state vertical-scroll-proportion="0.0">
+                    <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+                    <folding />
+                  </state>
+                </provider>
+              </entry>
+            </file>
+            <file leaf-file-name="dimens.xml" pinned="false" current-in-tab="false">
+              <entry file="file://$PROJECT_DIR$/my-android-project/res/values-w960dp/dimens.xml">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state vertical-scroll-proportion="0.0">
+                    <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
                     <folding />
                   </state>
                 </provider>
@@ -318,11 +175,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="LearningGameActivity.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="LearningGameActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/my-android-project/src/main/java/com/ewareza/shapegame/app/learning/LearningGameActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.332696">
-              <caret line="163" column="60" selection-start-line="163" selection-start-column="60" selection-end-line="163" selection-end-column="60" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="149" column="54" selection-start-line="149" selection-start-column="54" selection-end-line="149" selection-end-column="54" />
               <folding />
             </state>
           </provider>
@@ -343,50 +200,8 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="32" column="18" selection-start-line="32" selection-start-column="18" selection-end-line="32" selection-end-column="18" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GameEngine.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/my-android-project/src/main/java/com/ewareza/shapegame/app/GameEngine.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="37" column="32" selection-start-line="37" selection-start-column="32" selection-end-line="37" selection-end-column="32" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SingleGame.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/my-android-project/src/main/java/com/ewareza/shapegame/app/shapeColorGame/singleGame/SingleGame.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="77" column="21" selection-start-line="77" selection-start-column="21" selection-end-line="77" selection-end-column="21" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AbstractShape.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/my-android-project/src/main/java/com/ewareza/shapegame/domain/shape/AbstractShape.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="56" column="18" selection-start-line="56" selection-start-column="18" selection-end-line="56" selection-end-column="18" />
               <folding>
-                <element signature="e#1872#1873#0" expanded="true" />
-                <element signature="e#1913#1914#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Drawer.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/my-android-project/src/main/java/com/ewareza/shapegame/drawer/Drawer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="6" column="9" selection-start-line="6" selection-start-column="9" selection-end-line="6" selection-end-column="9" />
-              <folding>
+                <element signature="e#0#1316#0" expanded="false" />
                 <element signature="imports" expanded="false" />
               </folding>
             </state>
@@ -403,6 +218,29 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="AndroidManifest.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/my-android-project/AndroidManifest.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="19" column="41" selection-start-line="19" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main_screen.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/my-android-project/res/layout/main_screen.xml">
+          <provider selected="true" editor-type-id="android-designer">
+            <state />
+          </provider>
+          <provider editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="57" column="58" selection-start-line="57" selection-start-column="58" selection-end-line="57" selection-end-column="58" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="Drawable.java" pinned="false" current-in-tab="false">
         <entry file="jar://$MAVEN_REPOSITORY$/com/google/android/android/4.1.1.4/android-4.1.1.4-sources.jar!/android/graphics/drawable/Drawable.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -413,15 +251,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="learning_screen.xml" pinned="false" current-in-tab="false">
+      <file leaf-file-name="learning_screen.xml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/my-android-project/res/layout/learning_screen.xml">
           <provider selected="true" editor-type-id="android-designer">
             <state />
           </provider>
           <provider editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="12" column="46" selection-start-line="12" selection-start-column="46" selection-end-line="12" selection-end-column="46" />
-              <folding />
+              <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+              <folding>
+                <element signature="e#808#842#0" expanded="true" />
+                <element signature="e#3386#3435#0" expanded="true" />
+                <element signature="e#3482#3532#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -458,9 +300,15 @@
       <list>
         <option value="$PROJECT_DIR$/my-android-project/pom.xml" />
         <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/my-android-project/res/values/dimens.xml" />
         <option value="$PROJECT_DIR$/my-android-project/src/main/java/com/ewareza/shapegame/app/main/MainScreenActivity.java" />
         <option value="$PROJECT_DIR$/my-android-project/src/main/java/com/ewareza/shapegame/app/learning/LearningGameActivity.java" />
+        <option value="$PROJECT_DIR$/my-android-project/res/layout/learning_screen.xml" />
+        <option value="$PROJECT_DIR$/my-android-project/res/layout/main_screen.xml" />
+        <option value="$PROJECT_DIR$/my-android-project/res/values-w1280dp/dimens.xml" />
+        <option value="$PROJECT_DIR$/my-android-project/res/values-w960dp/dimens.xml" />
+        <option value="$PROJECT_DIR$/my-android-project/res/values/dimens.xml" />
+        <option value="$PROJECT_DIR$/my-android-project/res/values-w730dp/dimens.xml" />
+        <option value="$PROJECT_DIR$/my-android-project/res/values-w1024dp/dimens.xml" />
       </list>
     </option>
   </component>
@@ -633,6 +481,10 @@
               <option name="myItemId" value="res" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="values-w1280dp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -652,7 +504,69 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="values-w640dp" />
+              <option name="myItemId" value="values-w1024dp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="shape-game-parent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="shape-game-parent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="my-android-project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="values-w960dp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="shape-game-parent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="shape-game-parent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="my-android-project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="values-w730dp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="shape-game-parent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="shape-game-parent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="my-android-project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -702,8 +616,9 @@
     <property name="last_directory_selection" value="$PROJECT_DIR$/my-android-project/src/main/java/com/ewareza/shapegame/domain/factory" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="dynamic.classpath" value="false" />
-    <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager2.WIDTH" value="274" />
+    <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager2.WIDTH" value="278" />
     <property name="UI_DESIGNER_EDITOR_MODE.PaletteToolWindowManager.SHOW" value="true" />
+    <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager2.SHOW" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
@@ -714,11 +629,11 @@
       <recent name="com.ewareza.shapegame.app.learningGame" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Ewa\IdeaProjects\LilaGame\shape-game-parent\my-android-project\res" />
       <recent name="C:\Users\Ewa\IdeaProjects\LilaGame\shape-game-parent\my-android-project\res\drawable" />
       <recent name="C:\Users\Ewa\IdeaProjects\LilaGame\shape-game-parent\my-android-project\res\values-w730dp" />
       <recent name="C:\Users\Ewa\IdeaProjects\LilaGame\shape-game-parent\my-android-project\res\values-w640dp" />
       <recent name="C:\Users\Ewa\IdeaProjects\LilaGame\shape-game-parent\my-android-project\res\values-sw750dp" />
-      <recent name="C:\Users\Ewa\IdeaProjects\LilaGame\shape-game-parent\my-android-project\res\values-xxhdpi" />
     </key>
     <key name="MoveMembersDialog.RECENTS_KEY">
       <recent name="com.ewareza.shapegame.app.utils.GameUtils" />
@@ -886,9 +801,9 @@
       <option name="MODE" value="default_activity" />
       <option name="DEPLOY" value="true" />
       <option name="ARTIFACT_NAME" value="" />
-      <option name="TARGET_SELECTION_MODE" value="USB_DEVICE" />
+      <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
       <option name="USE_LAST_SELECTED_DEVICE" value="false" />
-      <option name="PREFERRED_AVD" value="" />
+      <option name="PREFERRED_AVD" value="Nexus_10_API_21" />
       <option name="USE_COMMAND_LINE" value="true" />
       <option name="COMMAND_LINE" value="" />
       <option name="WIPE_USER_DATA" value="false" />
@@ -939,7 +854,13 @@
       <option name="project" value="LOCAL" />
       <updated>1468410634374</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="dimen values for different screen sizes&#10;learning background clouds&#10;talking shapes">
+      <created>1468929215877</created>
+      <option name="number" value="00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1468929215877</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -953,19 +874,21 @@
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.50734097" sideWeight="0.50907713" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32900432" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28246754" sideWeight="0.4969743" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32952693" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3664865" sideWeight="0.49394855" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.36580086" sideWeight="0.49394855" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17803837" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Memory Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26406926" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Mirror" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.40367964" sideWeight="0.49092284" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.40367964" sideWeight="0.49092284" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -973,10 +896,8 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Thumbnails" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32952693" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26406926" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1203,14 +1124,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/my-android-project/res/values-v11/styles.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/my-android-project/res/drawable-xhdpi/ic_launcher.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -1236,26 +1149,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/my-android-project/res/values-xxhdpi/dimens_test.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="4" column="30" selection-start-line="4" selection-start-column="30" selection-end-line="4" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/my-android-project/res/values/strings.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/my-android-project/res/values-xxxhdpi/dimens_test.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="10" column="60" selection-start-line="10" selection-start-column="60" selection-end-line="10" selection-end-column="60" />
           <folding />
         </state>
       </provider>
@@ -1357,14 +1254,14 @@
           <caret line="58" column="20" selection-start-line="58" selection-start-column="20" selection-end-line="58" selection-end-column="20" />
           <folding>
             <element signature="imports" expanded="false" />
-            <element signature="e#1408#1409#0" expanded="false" />
-            <element signature="e#1415#1416#0" expanded="false" />
+            <element signature="e#1344#1345#0" expanded="false" />
+            <element signature="e#1375#1376#0" expanded="false" />
             <element signature="e#3491#3492#0" expanded="false" />
             <element signature="e#3567#3568#0" expanded="false" />
+            <element signature="e#5320#5321#0" expanded="false" />
+            <element signature="e#5376#5377#0" expanded="false" />
             <element signature="e#5428#5429#0" expanded="false" />
             <element signature="e#5493#5494#0" expanded="false" />
-            <element signature="e#5552#5553#0" expanded="false" />
-            <element signature="e#6230#6231#0" expanded="false" />
             <element signature="e#6920#6921#0" expanded="false" />
             <element signature="e#7007#7008#0" expanded="false" />
             <element signature="e#9996#9997#0" expanded="false" />
@@ -1372,70 +1269,6 @@
             <element signature="e#11596#11597#0" expanded="false" />
             <element signature="e#11691#11692#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/my-android-project/res/values-w730dp/dimens.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="12" selection-start-line="0" selection-start-column="12" selection-end-line="0" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/my-android-project/res/values-w1280dp/dimens.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.0">
-          <caret line="0" column="13" selection-start-line="0" selection-start-column="13" selection-end-line="0" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/my-android-project/res/values-hdpi/dimens.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.52668214">
-          <caret line="20" column="48" selection-start-line="20" selection-start-column="48" selection-end-line="20" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/my-android-project/res/values-w960dp/dimens.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="12" selection-start-line="0" selection-start-column="12" selection-end-line="0" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/my-android-project/res/values-xhdpi/dimens_test.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="30" column="57" selection-start-line="30" selection-start-column="57" selection-end-line="30" selection-end-column="57" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/my-android-project/res/values-w1024dp/dimens.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="12" selection-start-line="0" selection-start-column="12" selection-end-line="0" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/my-android-project/res/values-w533dp/dimens.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="22" column="56" selection-start-line="22" selection-start-column="56" selection-end-line="22" selection-end-column="56" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/my-android-project/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="19" column="63" selection-start-line="19" selection-start-column="63" selection-end-line="19" selection-end-column="63" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1451,33 +1284,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="51" column="29" selection-start-line="51" selection-start-column="29" selection-end-line="51" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/my-android-project/res/layout/main_screen.xml">
-      <provider selected="true" editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="55" column="58" selection-start-line="55" selection-start-column="58" selection-end-line="55" selection-end-column="58" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/my-android-project/res/values-w640dp/dimens.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="67" column="68" selection-start-line="0" selection-start-column="0" selection-end-line="95" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/my-android-project/res/values/dimens.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8435583">
-          <caret line="95" column="12" selection-start-line="95" selection-start-column="12" selection-end-line="95" selection-end-column="12" />
           <folding />
         </state>
       </provider>
@@ -1503,8 +1309,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="64" column="37" selection-start-line="64" selection-start-column="37" selection-end-line="64" selection-end-column="37" />
           <folding>
-            <element signature="e#2397#2398#0" expanded="true" />
-            <element signature="e#2452#2453#0" expanded="true" />
+            <element signature="e#2397#2398#0" expanded="false" />
+            <element signature="e#2452#2453#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1546,17 +1352,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/my-android-project/res/layout/learning_screen.xml">
-      <provider selected="true" editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="12" column="46" selection-start-line="12" selection-start-column="46" selection-end-line="12" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/my-android-project/src/main/java/com/ewareza/shapegame/drawer/AndroidCanvasDrawer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1569,7 +1364,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="32" column="18" selection-start-line="32" selection-start-column="18" selection-end-line="32" selection-end-column="18" />
-          <folding />
+          <folding>
+            <element signature="e#0#1316#0" expanded="false" />
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1577,6 +1375,33 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-6.965517">
           <caret line="17" column="39" selection-start-line="17" selection-start-column="38" selection-end-line="17" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/my-android-project/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="19" column="41" selection-start-line="19" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/my-android-project/res/layout/main_screen.xml">
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="57" column="58" selection-start-line="57" selection-start-column="58" selection-end-line="57" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/my-android-project/src/main/java/com/ewareza/shapegame/app/learning/LearningGameActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="149" column="54" selection-start-line="149" selection-start-column="54" selection-end-line="149" selection-end-column="54" />
           <folding />
         </state>
       </provider>
@@ -1589,11 +1414,58 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/my-android-project/src/main/java/com/ewareza/shapegame/app/learning/LearningGameActivity.java">
+    <entry file="file://$PROJECT_DIR$/my-android-project/res/values/dimens.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.332696">
-          <caret line="163" column="60" selection-start-line="163" selection-start-column="60" selection-end-line="163" selection-end-column="60" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/my-android-project/res/values-w730dp/dimens.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/my-android-project/res/values-w960dp/dimens.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/my-android-project/res/values-w1024dp/dimens.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/my-android-project/res/values-w1280dp/dimens.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/my-android-project/res/layout/learning_screen.xml">
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding>
+            <element signature="e#808#842#0" expanded="true" />
+            <element signature="e#3386#3435#0" expanded="true" />
+            <element signature="e#3482#3532#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

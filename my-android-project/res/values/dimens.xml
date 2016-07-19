@@ -49,7 +49,7 @@
     <dimen name="learning_cloud_left_bottom_height">@dimen/square_size</dimen>
 
     <dimen name="learning_cloud_left_bottom_margin_left">20dp</dimen>
-    <dimen name="learning_cloud_left_bottom_margin_top">160dp</dimen>
+    <dimen name="learning_cloud_left_bottom_margin_top">150dp</dimen>
 
     <!-- CIRCLE AND OVAL (LEFT TOP CLOUD)-->
     <dimen name="learning_cloud_left_top_margin_left">60dp</dimen>
@@ -78,7 +78,7 @@
     <dimen name="learning_cloud_right_top_shape_right_margin_left">10dp</dimen>
 
     <!-- STAR AND HEART (RIGHT BOTTOM CLOUD) -->
-    <dimen name="learning_cloud_right_bottom_margin_left">440dp</dimen>
+    <dimen name="learning_cloud_right_bottom_margin_left">420dp</dimen>
     <dimen name="learning_cloud_right_bottom_margin_top">130dp</dimen>
 
     <!-- STAR -->
